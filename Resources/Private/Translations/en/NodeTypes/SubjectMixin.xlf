@@ -3,7 +3,7 @@
 	<file original="" product-name="WebExcess.Form" source-language="en" datatype="plaintext">
 		<body>
 			<trans-unit id="groups.settings" xml:space="preserve">
-				<source>Settings</source>
+				<source>E-Mail Settings</source>
 			</trans-unit>
 			<trans-unit id="properties.subject" xml:space="preserve">
 				<source>Subject</source>

@@ -2,8 +2,11 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
 	<file original="" product-name="WebExcess.Form" source-language="de" datatype="plaintext">
 		<body>
-			<trans-unit id="error.select.form" xml:space="preserve">
-				<source>Bitte wählen Sie einen gültigen Identifier im Inspector aus.</source>
+			<trans-unit id="groups.settings" xml:space="preserve">
+				<source>E-Mail Einstellungen</source>
+			</trans-unit>
+			<trans-unit id="properties.subject" xml:space="preserve">
+				<source>Betreff</source>
 			</trans-unit>
 		</body>
 	</file>

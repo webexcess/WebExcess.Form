@@ -1,123 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file original="" product-name="Dotpulse.Form" source-language="de" datatype="plaintext">
+	<file original="" product-name="WebExcess.Form" source-language="de" datatype="plaintext">
 		<body>
-			<trans-unit id="title" xml:space="preserve">
+			<trans-unit id="forms.element.title.label" xml:space="preserve">
 				<source>Anrede</source>
 			</trans-unit>
-			<trans-unit id="title." xml:space="preserve">
-				<source> </source>
-			</trans-unit>
-			<trans-unit id="title.f" xml:space="preserve">
+			<trans-unit id="forms.element.title.options.f" xml:space="preserve">
 				<source>Frau</source>
 			</trans-unit>
-			<trans-unit id="title.m" xml:space="preserve">
+			<trans-unit id="forms.element.title.options.m" xml:space="preserve">
 				<source>Herr</source>
 			</trans-unit>
-			<trans-unit id="firstname" xml:space="preserve">
+			<trans-unit id="forms.element.firstname.label" xml:space="preserve">
 				<source>Vorname</source>
 			</trans-unit>
-			<trans-unit id="firstname.description" xml:space="preserve">
-				<source>Beschreibung</source>
+			<trans-unit id="forms.element.firstname.description" xml:space="preserve">
+				<source>Das ist eine Beschreibung für das Feld Vorname</source>
 			</trans-unit>
-			<trans-unit id="firstname.tooltip" xml:space="preserve">
-				<source>Dies ist ein Tooltip-Text.</source>
-			</trans-unit>
-			<trans-unit id="name" xml:space="preserve">
+			<trans-unit id="forms.element.lastname.label" xml:space="preserve">
 				<source>Name</source>
 			</trans-unit>
-			<trans-unit id="street" xml:space="preserve">
-				<source>Strasse</source>
+			<trans-unit id="forms.element.address.label" xml:space="preserve">
+				<source>Adresse</source>
 			</trans-unit>
-			<trans-unit id="streetNo" xml:space="preserve">
-				<source>Nr.</source>
-			</trans-unit>
-			<trans-unit id="zip" xml:space="preserve">
+			<trans-unit id="forms.element.zip.label" xml:space="preserve">
 				<source>PLZ</source>
 			</trans-unit>
-			<trans-unit id="city" xml:space="preserve">
+			<trans-unit id="forms.element.city.label" xml:space="preserve">
 				<source>Ort</source>
 			</trans-unit>
-			<trans-unit id="country" xml:space="preserve">
+			<trans-unit id="forms.element.country.label" xml:space="preserve">
 				<source>Land</source>
 			</trans-unit>
-			<trans-unit id="country." xml:space="preserve">
-				<source> </source>
-			</trans-unit>
-			<trans-unit id="country.ch" xml:space="preserve">
+			<trans-unit id="forms.element.country.options.ch" xml:space="preserve">
 				<source>Schweiz</source>
 			</trans-unit>
-			<trans-unit id="country.de" xml:space="preserve">
+			<trans-unit id="forms.element.country.options.de" xml:space="preserve">
 				<source>Deutschland</source>
 			</trans-unit>
-			<trans-unit id="country.at" xml:space="preserve">
+			<trans-unit id="forms.element.country.options.at" xml:space="preserve">
 				<source>Österreich</source>
 			</trans-unit>
-			<trans-unit id="email" xml:space="preserve">
+			<trans-unit id="forms.element.email.label" xml:space="preserve">
 				<source>E-Mail</source>
 			</trans-unit>
-			<trans-unit id="email.placeholder" xml:space="preserve">
-				<source>max@muster.ch</source>
+			<trans-unit id="forms.element.email.placeholder" xml:space="preserve">
+				<source>email@deine-domain.com</source>
 			</trans-unit>
-			<trans-unit id="phone" xml:space="preserve">
+			<trans-unit id="forms.element.phone.label" xml:space="preserve">
 				<source>Telefon</source>
 			</trans-unit>
-			<trans-unit id="newsletter" xml:space="preserve">
-				<source>Newsletter</source>
-			</trans-unit>
-			<trans-unit id="day" xml:space="preserve">
+			<trans-unit id="forms.element.day.label" xml:space="preserve">
 				<source>Tag</source>
 			</trans-unit>
-			<trans-unit id="month" xml:space="preserve">
+			<trans-unit id="forms.element.month.label" xml:space="preserve">
 				<source>Monat</source>
 			</trans-unit>
-			<trans-unit id="year" xml:space="preserve">
+			<trans-unit id="forms.element.year.label" xml:space="preserve">
 				<source>Jahr</source>
 			</trans-unit>
-			<trans-unit id="tags" xml:space="preserve">
+			<trans-unit id="forms.element.tags.label" xml:space="preserve">
 				<source>Inhaltselement mit Tags</source>
 			</trans-unit>
-			<trans-unit id="tags." xml:space="preserve">
-				<source> </source>
-			</trans-unit>
-			<trans-unit id="tags.1" xml:space="preserve">
+			<trans-unit id="forms.element.tags.options.1" xml:space="preserve">
 				<source>Tag 1</source>
 			</trans-unit>
-			<trans-unit id="tags.2" xml:space="preserve">
+			<trans-unit id="forms.element.tags.options.2" xml:space="preserve">
 				<source>Tag 2</source>
 			</trans-unit>
-			<trans-unit id="tags.3" xml:space="preserve">
+			<trans-unit id="forms.element.tags.options.3" xml:space="preserve">
 				<source>Tag 3</source>
 			</trans-unit>
-			<trans-unit id="tags.4" xml:space="preserve">
+			<trans-unit id="forms.element.tags.options.4" xml:space="preserve">
 				<source>Tag 4</source>
 			</trans-unit>
-			<trans-unit id="tags.5" xml:space="preserve">
+			<trans-unit id="forms.element.tags.options.5" xml:space="preserve">
 				<source>Tag 5</source>
 			</trans-unit>
-			<trans-unit id="contactType" xml:space="preserve">
+			<trans-unit id="forms.element.contactType.label" xml:space="preserve">
 				<source>Kontaktieren Sie mich per:</source>
 			</trans-unit>
-			<trans-unit id="contactType.email" xml:space="preserve">
+			<trans-unit id="forms.element.contactType.options.email" xml:space="preserve">
 				<source>E-Mail</source>
 			</trans-unit>
-			<trans-unit id="contactType.phone" xml:space="preserve">
+			<trans-unit id="forms.element.contactType.options.phone" xml:space="preserve">
 				<source>Telefon</source>
 			</trans-unit>
-			<trans-unit id="message" xml:space="preserve">
-				<source>Ihre Nachricht</source>
+			<trans-unit id="forms.element.message.label" xml:space="preserve">
+				<source>Nachricht</source>
 			</trans-unit>
-			<trans-unit id="message.placeholder" xml:space="preserve">
+			<trans-unit id="forms.element.message.placeholder" xml:space="preserve">
 				<source>Hier kommt Ihre Nachricht</source>
 			</trans-unit>
-			
-			<trans-unit id="submitButton">
+			<trans-unit id="forms.element.newsletter.label" xml:space="preserve">
+				<source>Senden Sie mir den Newsletter</source>
+			</trans-unit>
+
+			<trans-unit id="confirmation.contact" xml:space="preserve">
+				<source><![CDATA[<p>Vielen Dank für Ihre Nachricht.</p>]]></source>
+			</trans-unit>
+
+			<trans-unit id="forms.navigation.defaultFormSend">
 				<source>Default Submit</source>
 			</trans-unit>
-			<trans-unit id="contactFormSend">
-				<source>Senden</source>
-			</trans-unit>
-			<trans-unit id="submit">
+			<trans-unit id="forms.navigation.contactFormSend">
 				<source>Senden</source>
 			</trans-unit>
 		</body>

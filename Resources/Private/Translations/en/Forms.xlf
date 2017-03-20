@@ -97,9 +97,9 @@
 			</trans-unit>
 
 			<trans-unit id="confirmation.contact" xml:space="preserve">
-				<source><![CDATA[<p>Thank you for your reservation. You will receive our confirmation as soon as possible.</p>]]></source>
+				<source><![CDATA[<p>Thank you for your message.</p>]]></source>
 			</trans-unit>
-			
+
 			<trans-unit id="forms.navigation.defaultFormSend">
 				<source>Default Submit</source>
 			</trans-unit>
