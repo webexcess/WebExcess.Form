@@ -1,0 +1,27 @@
+{namespace form=TYPO3\Form\ViewHelpers}
+{namespace we=WebExcess\Form\ViewHelpers}
+<f:layout name="TYPO3.Form:FieldCheckboxAndRadio" />
+<f:section name="field">
+	<f:for each="{element.properties.options}" as="label" key="value">
+		<div class="{element.renderingOptions.elementClassAttribute}{f:if(condition: validationResults.flattenedErrors, then: ' {element.renderingOptions.error.containerClassAttribute}')}"<f:if condition="{element.rootForm.renderingOptions.previewMode}"> data-element="{form:form.formElementRootlinePath(renderable:element)}"</f:if>>
+			<label>
+				<f:form.checkbox property="{element.identifier}" multiple="1" value="{value}" errorClass="{element.renderingOptions.error.elementClassAttribute}" />
+				<i class="{element.renderingOptions.helperBarClass}"></i>
+				<span>
+					{element -> we:translateElementProperty(property: 'options.{value}') -> f:format.nl2br()}
+					<f:if condition="{element.renderingOptions.renderLabel}==0">
+						<f:if condition="{element.required}">
+							<f:render partial="TYPO3.Form:Field/Required" />
+						</f:if>
+					</f:if>
+				</span>
+			</label>
+		</div>
+	</f:for>
+
+	<f:if condition="{validationResults.flattenedErrors}">
+		<f:for each="{validationResults.errors}" as="error">
+			<div class="{element.renderingOptions.error.message.containerClassAttribute}">{error -> f:translate(id: error.code, arguments: error.arguments, package: '{element.renderingOptions.translationErrorPackage}', source: 'ValidationErrors')}</div>
+		</f:for>
+	</f:if>
+</f:section>

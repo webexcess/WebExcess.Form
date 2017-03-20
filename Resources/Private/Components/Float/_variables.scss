@@ -1,0 +1,101 @@
+$form-font-size: 1rem !default;
+$form-label-font-size: $form-font-size !default;
+$form-legend-font-size: $form-label-font-size !default;
+$form-hint-font-size: $form-font-size * 0.75 !default;
+
+$form-color: #333 !default;
+$form-border-color: #999 !default;
+$form-label-color: lighten($form-border-color, 10%) !default;
+$form-legend-color: $form-label-color !default;
+$form-border-focus-color: #337ab7 !default;
+$form-label-focus-color: $form-border-focus-color !default;
+$form-error-color: #d9534f !default;
+$form-hint-color: $form-label-color !default;
+
+$form-height: 50px !default;
+$form-padding: 15px 12px 5px !default;
+$form-padding-x: 12px !default;
+$form-transition-speed: 0.28s !default;
+
+$form-margin-top: 0 !default;
+$form-margin-bottom: 20px !default;
+
+//= Input - Textarea
+$form-input-height: $form-height !default;
+$form-input-padding: $form-padding !default;
+
+$form-input-color: $form-color !default;
+$form-input-label-color: $form-label-color !default;
+$form-input-label-focus-color: $form-label-focus-color !default;
+$form-input-border-color: $form-border-color !default;
+$form-input-border-focus-color: $form-border-focus-color !default;
+$form-input-background-color: #fff !default;
+$form-input-hint-color: $form-hint-color !default;
+
+$form-input-font-size: $form-font-size !default;
+$form-input-label-font-size: $form-input-font-size !default;
+$form-input-label-active-font-size: $form-input-label-font-size * 0.75 !default;
+$form-input-hint-font-size: $form-font-size * 0.75 !default;
+
+//= Checkbox
+$form-checkbox-gap: $form-font-size * 1.5 !default;
+$form-checkbox-size: $form-font-size !default;
+$form-checkbox-top: $form-font-size * 0.2 !default !default;
+$form-checkbox-margin-bottom: 0 !default;
+$form-checkbox-inline-margin-right: $form-font-size !default;
+
+$form-checkbox-border-color: $form-border-color !default;
+$form-checkbox-border-focus-color: $form-border-focus-color !default;
+
+$form-checkbox-legend-font-size: $form-legend-font-size !default;
+$form-checkbox-legend-margin: 0 !default;
+$form-checkbox-legend-color: $form-legend-color !default;
+
+$form-checkbox-label-left: $form-checkbox-gap !default;
+$form-checkbox-label-color: $form-label-color !default;
+
+$form-checkbox-hint-color: $form-hint-color !default;
+$form-checkbox-hint-font-size: $form-hint-font-size !default;
+
+//= Radio Buttons
+$form-radio-spacer: ($form-font-size / 8) * 2 !default;
+$form-radio-gap: $form-font-size * 1.5 !default;
+$form-radio-size: $form-font-size !default;
+$form-radio-margin-bottom: 0 !default;
+$form-radio-inline-margin-right: $form-font-size !default;
+
+$form-radio-border-color: $form-border-color !default;
+$form-radio-border-focus-color: $form-border-focus-color !default;
+
+$form-radio-legend-font-size: $form-legend-font-size !default;
+$form-radio-legend-margin: 0 !default;
+$form-radio-legend-color: $form-legend-color !default;
+
+$form-radio-label-left: $form-radio-gap !default;
+$form-radio-label-color: $form-label-color !default;
+
+$form-radio-hint-color: $form-hint-color !default;
+$form-radio-hint-font-size: $form-hint-font-size !default;
+
+//= Dropdown
+$form-dropdown-label-color: $form-label-color !default;
+$form-dropdown-label-focus-color: $form-label-focus-color !default;
+$form-dropdown-border-color: $form-border-color !default;
+$form-dropdown-border-focus-color: $form-border-focus-color !default;
+$form-dropdown-hint-color: $form-hint-color !default;
+
+$form-dropdown-font-size: $form-font-size !default;
+$form-dropdown-label-font-size: $form-font-size !default;
+$form-dropdown-label-active-font-size: $form-dropdown-label-font-size * 0.75 !default;
+$form-dropdown-hint-font-size: $form-hint-font-size !default;
+
+$form-dropdown-height: $form-height !default;
+$form-dropdown-padding: $form-padding !default;
+$form-dropdown-label-left: $form-padding-x !default;
+
+$form-dropdown-menu-shadow: 0 2px 2px 0 rgba(#000, 0.14), 0 3px 1px -2px rgba(#000, 0.2), 0 1px 5px 0 rgba(#000, 0.12) !default;
+$form-dropdown-menu-background: #fff !default;
+$form-dropdown-menu-max-height: 300px !default;
+$form-dropdown-menu-item-hover-background: $form-label-focus-color !default;
+$form-dropdown-menu-item-hover-color: #fff !default;
+$form-dropdown-menu-item-padding: 10px $form-padding-x !default;

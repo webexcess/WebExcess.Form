@@ -1,0 +1,10 @@
+prototype(TYPO3.Neos.NodeTypes:Form) {
+	templatePath = 'resource://WebExcess.Form/Private/Templates/NodeTypes/Form.html'
+	# possible: webexcess || bootstrap || foundation || material || float
+	presetName = 'webexcess'
+	attributes = TYPO3.TypoScript:Attributes {
+		class = TYPO3.TypoScript:RawArray {
+			nodeType = 'typo3-neos-nodetypes-form'
+		}
+	}
+}

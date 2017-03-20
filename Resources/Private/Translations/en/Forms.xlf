@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" product-name="WebExcess.Form" source-language="en" datatype="plaintext">
+		<body>
+			<trans-unit id="forms.element.title.label" xml:space="preserve">
+				<source>Salutation</source>
+			</trans-unit>
+			<trans-unit id="forms.element.title.options.f" xml:space="preserve">
+				<source>Mrs</source>
+			</trans-unit>
+			<trans-unit id="forms.element.title.options.m" xml:space="preserve">
+				<source>Mr.</source>
+			</trans-unit>
+			<trans-unit id="forms.element.firstname.label" xml:space="preserve">
+				<source>Firstname</source>
+			</trans-unit>
+			<trans-unit id="forms.element.firstname.description" xml:space="preserve">
+				<source>This is a description for firstname</source>
+			</trans-unit>
+			<trans-unit id="forms.element.lastname.label" xml:space="preserve">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="forms.element.address.label" xml:space="preserve">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="forms.element.zip.label" xml:space="preserve">
+				<source>ZIP</source>
+			</trans-unit>
+			<trans-unit id="forms.element.city.label" xml:space="preserve">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="forms.element.country.label" xml:space="preserve">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="forms.element.country.options.ch" xml:space="preserve">
+				<source>Switzerland</source>
+			</trans-unit>
+			<trans-unit id="forms.element.country.options.de" xml:space="preserve">
+				<source>Germany</source>
+			</trans-unit>
+			<trans-unit id="forms.element.country.options.at" xml:space="preserve">
+				<source>Austria</source>
+			</trans-unit>
+			<trans-unit id="forms.element.email.label" xml:space="preserve">
+				<source>E-Mail</source>
+			</trans-unit>
+			<trans-unit id="forms.element.email.placeholder" xml:space="preserve">
+				<source>email@your-domain.com</source>
+			</trans-unit>
+			<trans-unit id="forms.element.phone.label" xml:space="preserve">
+				<source>Phone</source>
+			</trans-unit>
+			<trans-unit id="forms.element.day.label" xml:space="preserve">
+				<source>Day</source>
+			</trans-unit>
+			<trans-unit id="forms.element.month.label" xml:space="preserve">
+				<source>Month</source>
+			</trans-unit>
+			<trans-unit id="forms.element.year.label" xml:space="preserve">
+				<source>Year</source>
+			</trans-unit>
+			<trans-unit id="forms.element.tags.label" xml:space="preserve">
+				<source>Content item with tags</source>
+			</trans-unit>
+			<trans-unit id="forms.element.tags.options.1" xml:space="preserve">
+				<source>Tag 1</source>
+			</trans-unit>
+			<trans-unit id="forms.element.tags.options.2" xml:space="preserve">
+				<source>Tag 2</source>
+			</trans-unit>
+			<trans-unit id="forms.element.tags.options.3" xml:space="preserve">
+				<source>Tag 3</source>
+			</trans-unit>
+			<trans-unit id="forms.element.tags.options.4" xml:space="preserve">
+				<source>Tag 4</source>
+			</trans-unit>
+			<trans-unit id="forms.element.tags.options.5" xml:space="preserve">
+				<source>Tag 5</source>
+			</trans-unit>
+			<trans-unit id="forms.element.contactType.label" xml:space="preserve">
+				<source>Contact me by:</source>
+			</trans-unit>
+			<trans-unit id="forms.element.contactType.options.email" xml:space="preserve">
+				<source>E-Mail</source>
+			</trans-unit>
+			<trans-unit id="forms.element.contactType.options.phone" xml:space="preserve">
+				<source>Phone</source>
+			</trans-unit>
+			<trans-unit id="forms.element.message.label" xml:space="preserve">
+				<source>Message</source>
+			</trans-unit>
+			<trans-unit id="forms.element.message.placeholder" xml:space="preserve">
+				<source>Enter your message here</source>
+			</trans-unit>
+			<trans-unit id="forms.element.newsletter.label" xml:space="preserve">
+				<source>Send me the newsletter</source>
+			</trans-unit>
+
+			<trans-unit id="confirmation.contact" xml:space="preserve">
+				<source><![CDATA[<p>Thank you for your reservation. You will receive our confirmation as soon as possible.</p>]]></source>
+			</trans-unit>
+			
+			<trans-unit id="forms.navigation.defaultFormSend">
+				<source>Default Submit</source>
+			</trans-unit>
+			<trans-unit id="forms.navigation.contactFormSend">
+				<source>Send</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

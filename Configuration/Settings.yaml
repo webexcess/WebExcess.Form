@@ -1,0 +1,462 @@
+TYPO3:
+  Neos:
+    typoScript:
+      autoInclude:
+        'WebExcess.Form': true
+    userInterface:
+      translation:
+        autoInclude:
+          'WebExcess.Form': ['Main', 'Forms', 'Modules', 'NodeTypes/*']
+    modules:
+      administration:
+        submodules:
+          form:
+            label: 'WebExcess.Form:Modules:form.label'
+            controller: '\WebExcess\Form\Controller\Module\FormController'
+            description: 'WebExcess.Form:Modules:form.description'
+            icon: 'icon-envelope-alt'
+            resource: 'WebExcess.Form:Backend.Module.Form'
+
+  Form:
+    yamlPersistenceManager:
+      savePath: 'resource://WebExcess.Form/Private/Forms/'
+    presets:
+      webexcess:
+        parentPreset: 'default'
+        title: 'WebExcess'
+        formElementTypes:
+          TYPO3.Form:Base:
+            renderingOptions:
+              layoutPathPattern: 'resource://WebExcess.Form/Private/Layouts/WebExcess/{@type}.html'
+              partialPathPattern: 'resource://WebExcess.Form/Private/Partials/WebExcess/{@type}.html'
+              translationPackage: 'WebExcess.Form'
+              translationFile: 'Forms'
+              translationErrorPackage: 'TYPO3.Flow'
+              #translateBy: false # 'id' || 'label'
+              translateBy: 'id'
+          TYPO3.Form:Form:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/Form.html'
+              containerClassAttribute: '' # class for <form />
+              multipartForm: false # render enctype="multipart/form-data"
+              renderSubmitButton: true # render submit-button on the end of page
+              button:
+                containerClassAttribute: 'actions' # container-class for button on the end of page
+                previousClassAttribute: 'btn btn-cancel'
+                nextClassAttribute: 'btn btn-primary'
+                submitClassAttribute: 'btn btn-primary'
+          TYPO3.Form:FormElement:
+            renderingOptions:
+              containerClassAttribute: 'clearfix'
+              elementClassAttribute: ''
+              labelClassAttribute: ''
+              renderLabel: true
+              rowClassAttribute: 'row'
+              colClassAttribute: 'col-sm-6'
+              colElement: false # possible options: first || middle || last
+              description:
+                containerClassAttribute: ''
+                elementClassAttribute: 'help-block'
+              error:
+                containerClassAttribute: 'error'
+                elementClassAttribute: ''
+                message:
+                  containerClassAttribute: 'help-inline'
+                  elementClassAttribute: ''
+          TYPO3.Form:Section:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/Section.html'
+              showLegend: true
+          TYPO3.Form:SingleLineText:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/SingleLineText.html'
+            properties:
+              type: 'text'
+          TYPO3.Form:MultiLineText:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/MultiLineText.html'
+              elementClassAttribute: 'xxlarge'
+          TYPO3.Form:Checkbox:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/Checkbox.html'
+              renderLabel: false
+          TYPO3.Form:MultipleSelectCheckboxes:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/MultipleSelectCheckboxes.html'
+              inlineStyle: true
+              inlineClassAttribute: 'inline'
+              blockClassAttribute: 'block'
+          TYPO3.Form:SingleSelectRadiobuttons:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/SingleSelectRadiobuttons.html'
+              inlineStyle: true
+              inlineClassAttribute: 'inline'
+              blockClassAttribute: 'block'
+          TYPO3.Form:SingleSelectDropdown:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/SingleSelectDropdown.html'
+              translateBy: 'id'
+            properties:
+              prependOption: false
+          TYPO3.Form:MultipleSelectDropdown:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/MultipleSelectDropdown.html'
+          TYPO3.Form:StaticText:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/StaticText.html'
+          WebExcess.Form:Spinner:
+            superTypes:
+              TYPO3.Form:SingleLineText: true
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/Spinner.html'
+              elementClassAttribute: 'input-spinner'
+            properties:
+              min: 0
+          WebExcess.Form:Submit:
+            superTypes:
+              TYPO3.Form:FormElement: true
+              TYPO3.Form:TextMixin: true
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/Submit.html'
+              containerClassAttribute: 'clearfix'
+              elementClassAttribute: 'btn btn-primary'
+              submitButtonLabel: 'defaultFormSend'
+          WebExcess.Form:Column:
+            superTypes:
+              TYPO3.Form:FormElement: true
+            implementationClassName: 'TYPO3\Form\FormElements\Section'
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/Column.html'
+              renderableNameInTemplate: 'section'
+              rowClassAttribute: 'row'
+              colClassAttribute: 'col-sm-6'
+              colRenderPosition: false # possible options: first || last
+
+          WebExcess.Form:ConditionalRequiredSingleLineText:
+            superTypes:
+              TYPO3.Form:SingleLineText: true
+            implementationClassName: 'WebExcess\Form\FormElements\ConditionalRequired'
+            #properties:
+            #  triggerPropertyField: 'location'
+            #  triggerPropertyType: 'checkbox' # input || checkbox
+            #  triggerPropertyValue: true
+
+        finisherPresets:
+          'WebExcess.Form:Email':
+            implementationClassName: 'WebExcess\Form\Finishers\EmailFinisher'
+            options:
+              templatePathAndFilename: 'resource://WebExcess.Form/Private/Templates/Form/EmailTranslated.html'
+              format: html
+          'WebExcess.Form:EmailWithAttachment':
+            implementationClassName: 'WebExcess\Form\Finishers\EmailWithAttachmentFinisher'
+            options:
+              templatePathAndFilename: 'resource://WebExcess.Form/Private/Templates/Form/EmailTranslated.html'
+              format: html
+          'WebExcess.Form:SaveToDatabase':
+            implementationClassName: 'WebExcess\Form\Finishers\SaveToDatabaseFinisher'
+            options: {}
+
+      bootstrap:
+        parentPreset: 'webexcess'
+        title: 'Bootstrap by WebExcess'
+        formElementTypes:
+          TYPO3.Form:Base:
+            renderingOptions:
+              layoutPathPattern: 'resource://WebExcess.Form/Private/Layouts/Bootstrap/{@type}.html'
+              partialPathPattern: 'resource://WebExcess.Form/Private/Partials/Bootstrap/{@type}.html'
+          TYPO3.Form:Page:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Bootstrap/Page.html'
+          TYPO3.Form:Form:
+            renderingOptions:
+              button:
+                containerClassAttribute: 'form-footer'
+          TYPO3.Form:FormElement:
+            renderingOptions:
+              containerClassAttribute: 'form-group'
+              elementClassAttribute: 'form-control'
+              rowClassAttribute: 'row form-row'
+              description:
+                elementClassAttribute: 'text-muted'
+              error:
+                containerClassAttribute: 'has-danger'
+                message:
+                  containerClassAttribute: 'text-muted'
+          TYPO3.Form:MultiLineText:
+            renderingOptions:
+              elementClassAttribute: 'form-control'
+          TYPO3.Form:Checkbox:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Bootstrap/Checkbox.html'
+              elementClassAttribute: 'checkbox'
+          TYPO3.Form:MultipleSelectCheckboxes:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Bootstrap/MultipleSelectCheckboxes.html'
+              elementClassAttribute: 'checkbox'
+              inlineStyle: false
+              inlineClassAttribute: 'checkbox-inline'
+          TYPO3.Form:SingleSelectRadiobuttons:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Bootstrap/SingleSelectRadiobuttons.html'
+              elementClassAttribute: 'radio'
+              inlineStyle: false
+              inlineClassAttribute: 'radio-inline'
+          Dotpulse.Form:Submit:
+            renderingOptions:
+              containerClassAttribute: 'form-group'
+
+      foundation:
+        parentPreset: 'webexcess'
+        title: 'Foundation by WebExcess'
+        formElementTypes:
+          TYPO3.Form:Base:
+            renderingOptions:
+              layoutPathPattern: 'resource://WebExcess.Form/Private/Layouts/Foundation/{@type}.html'
+              partialPathPattern: 'resource://WebExcess.Form/Private/Partials/Foundation/{@type}.html'
+          TYPO3.Form:Page:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Foundation/Page.html'
+          TYPO3.Form:Form:
+            renderingOptions:
+              button:
+                containerClassAttribute: 'form-footer'
+                previousClassAttribute: 'button alert'
+                nextClassAttribute: 'button'
+                submitClassAttribute: 'button'
+          TYPO3.Form:FormElement:
+            renderingOptions:
+              containerClassAttribute: 'form-group'
+              elementClassAttribute: 'form-control'
+              rowClassAttribute: 'row form-row'
+              colClassAttribute: 'columns small-6'
+              description:
+                elementClassAttribute: 'help-text'
+              error:
+                containerClassAttribute: 'is-invalid-label'
+                message:
+                  containerClassAttribute: 'text-muted'
+                  elementClassAttribute: 'is-invalid-input'
+          TYPO3.Form:MultiLineText:
+            renderingOptions:
+              elementClassAttribute: ''
+          TYPO3.Form:Checkbox:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Foundation/Checkbox.html'
+          TYPO3.Form:MultipleSelectCheckboxes:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Foundation/MultipleSelectCheckboxes.html'
+              inlineStyle: true
+          TYPO3.Form:SingleSelectRadiobuttons:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Foundation/SingleSelectRadiobuttons.html'
+              inlineStyle: true
+          WebExcess.Form:Submit:
+            renderingOptions:
+              containerClassAttribute: 'form-group'
+              elementClassAttribute: 'button'
+          WebExcess.Form:Column:
+            renderingOptions:
+              colClassAttribute: 'columns small-6'
+
+      material:
+        parentPreset: 'webexcess'
+        title: 'Material by WebExcess'
+        formElementTypes:
+          TYPO3.Form:Base:
+            renderingOptions:
+              layoutPathPattern: 'resource://WebExcess.Form/Private/Layouts/Material/{@type}.html'
+              partialPathPattern: 'resource://WebExcess.Form/Private/Partials/Material/{@type}.html'
+          TYPO3.Form:Page:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Material/Page.html'
+          TYPO3.Form:Form:
+            renderingOptions:
+              containerClassAttribute: 'form-styled'
+              button:
+                containerClassAttribute: 'mf-form-actions'
+                previousClassAttribute: 'mf-button mf-button-cancel'
+                nextClassAttribute: 'mf-button'
+                submitClassAttribute: 'mf-button'
+          TYPO3.Form:FormElement:
+            renderingOptions:
+              containerClassAttribute: ''
+              rowClassAttribute: 'row mf-row'
+              description:
+                elementClassAttribute: ''
+              error:
+                containerClassAttribute: 'mf-has-error'
+                message:
+                  containerClassAttribute: 'mf-input-hint'
+          TYPO3.Form:SingleLineText:
+            renderingOptions:
+              containerClassAttribute: 'mf-input'
+              elementClassAttribute: 'mf-input-field'
+              labelClassAttribute: 'mf-input-label'
+              helperBarClass: 'mf-input-bar'
+              description:
+                elementClassAttribute: 'mf-input-hint'
+          TYPO3.Form:MultiLineText:
+            renderingOptions:
+              containerClassAttribute: 'mf-textarea'
+              elementClassAttribute: 'mf-textarea-field'
+              labelClassAttribute: 'mf-textarea-label'
+              helperBarClass: 'mf-textarea-bar'
+              description:
+                elementClassAttribute: 'mf-textarea-hint'
+          TYPO3.Form:Checkbox:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Material/Checkbox.html'
+              elementClassAttribute: 'mf-checkbox'
+              labelClassAttribute: 'mf-checkbox-legend'
+              helperBarClass: 'mf-checkbox-button'
+              description:
+                elementClassAttribute: 'mf-checkbox-hint'
+          TYPO3.Form:MultipleSelectCheckboxes:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Material/MultipleSelectCheckboxes.html'
+              inlineClassAttribute: 'mf-checkbox-inline'
+              blockClassAttribute: 'mf-checkbox-block'
+              elementClassAttribute: 'mf-checkbox'
+              labelClassAttribute: 'mf-checkbox-legend'
+              helperBarClass: 'mf-checkbox-button'
+              description:
+                elementClassAttribute: 'mf-checkbox-hint'
+          TYPO3.Form:SingleSelectRadiobuttons:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Material/SingleSelectRadiobuttons.html'
+              inlineClassAttribute: 'mf-radio-inline'
+              blockClassAttribute: 'mf-radio-block'
+              elementClassAttribute: 'mf-radio'
+              labelClassAttribute: 'mf-radio-legend'
+              helperBarClass: 'mf-radio-button'
+              description:
+                elementClassAttribute: 'mf-radio-hint'
+          TYPO3.Form:SingleSelectDropdown:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Material/SingleSelectDropdown.html'
+              containerClassAttribute: 'mf-select'
+              elementClassAttribute: 'mf-select-field'
+              labelClassAttribute: 'mf-select-label'
+              description:
+                elementClassAttribute: 'mf-select-hint'
+              error:
+                message:
+                  containerClassAttribute: 'mf-select-hint'
+            properties:
+              prependOption: true
+          TYPO3.Form:MultipleSelectDropdown:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Material/MultipleSelectDropdown.html'
+              containerClassAttribute: 'mf-select'
+              elementClassAttribute: 'mf-select-field'
+              labelClassAttribute: 'mf-select-label'
+              description:
+                elementClassAttribute: 'mf-select-hint'
+              error:
+                message:
+                  containerClassAttribute: 'mf-select-hint'
+            properties:
+              prependOption: true
+          WebExcess.Form:Spinner:
+            renderingOptions:
+              elementClassAttribute: 'mf-input-spinner'
+          WebExcess.Form:Submit:
+            renderingOptions:
+              containerClassAttribute: 'mf-form-actions'
+              elementClassAttribute: 'mf-button'
+
+      float:
+        parentPreset: 'material'
+        title: 'Floating label by WebExcess'
+        formElementTypes:
+          TYPO3.Form:Base:
+            renderingOptions:
+              layoutPathPattern: 'resource://WebExcess.Form/Private/Layouts/Float/{@type}.html'
+          TYPO3.Form:Form:
+            renderingOptions:
+              button:
+                containerClassAttribute: 'form-actions'
+                previousClassAttribute: 'form-button form-button-cancel'
+                nextClassAttribute: 'form-button'
+                submitClassAttribute: 'form-button'
+          TYPO3.Form:FormElement:
+            renderingOptions:
+              rowClassAttribute: 'row form-row'
+              error:
+                containerClassAttribute: 'has-error'
+                message:
+                  containerClassAttribute: 'form-input-hint'
+          TYPO3.Form:SingleLineText:
+            renderingOptions:
+              containerClassAttribute: 'form-input'
+              elementClassAttribute: 'form-input-field'
+              labelClassAttribute: 'form-input-label'
+              description:
+                elementClassAttribute: 'form-input-hint'
+          TYPO3.Form:MultiLineText:
+            renderingOptions:
+              containerClassAttribute: 'form-textarea'
+              elementClassAttribute: 'form-textarea-field'
+              labelClassAttribute: 'form-textarea-label'
+              description:
+                elementClassAttribute: 'form-textarea-hint'
+          TYPO3.Form:Checkbox:
+            renderingOptions:
+              elementClassAttribute: 'form-checkbox'
+              labelClassAttribute: 'form-checkbox-legend'
+              helperBarClass: 'form-checkbox-button'
+              description:
+                elementClassAttribute: 'form-checkbox-hint'
+              error:
+                message:
+                  containerClassAttribute: 'form-checkbox-hint'
+          TYPO3.Form:MultipleSelectCheckboxes:
+            renderingOptions:
+              inlineClassAttribute: 'form-checkbox-inline'
+              blockClassAttribute: 'form-checkbox-block'
+              elementClassAttribute: 'form-checkbox'
+              labelClassAttribute: 'form-checkbox-legend'
+              helperBarClass: 'form-checkbox-button'
+              description:
+                elementClassAttribute: 'form-checkbox-hint'
+              error:
+                message:
+                  containerClassAttribute: 'form-checkbox-hint'
+          TYPO3.Form:SingleSelectRadiobuttons:
+            renderingOptions:
+              inlineClassAttribute: 'form-radio-inline'
+              blockClassAttribute: 'form-radio-block'
+              elementClassAttribute: 'form-radio'
+              labelClassAttribute: 'form-radio-legend'
+              helperBarClass: 'form-radio-button'
+              description:
+                elementClassAttribute: 'form-radio-hint'
+              error:
+                message:
+                  containerClassAttribute: 'form-radio-hint'
+          TYPO3.Form:SingleSelectDropdown:
+            renderingOptions:
+              containerClassAttribute: 'form-select'
+              elementClassAttribute: 'form-select-field'
+              labelClassAttribute: 'form-select-label'
+              description:
+                elementClassAttribute: 'form-select-hint'
+              error:
+                message:
+                  containerClassAttribute: 'form-select-hint'
+          TYPO3.Form:MultipleSelectDropdown:
+            renderingOptions:
+              containerClassAttribute: 'form-select'
+              elementClassAttribute: 'form-select-field'
+              labelClassAttribute: 'form-select-label'
+              description:
+                elementClassAttribute: 'form-select-hint'
+              error:
+                message:
+                  containerClassAttribute: 'form-select-hint'
+            properties:
+              prependOption: true
+          WebExcess.Form:Submit:
+            renderingOptions:
+              containerClassAttribute: 'form-actions'
+              elementClassAttribute: 'form-button'

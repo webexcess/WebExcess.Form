@@ -1,0 +1,18 @@
+privilegeTargets:
+  'TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
+    'WebExcess.Form:Backend.Module.Form':
+      matcher: 'method(WebExcess\Form\Controller\Module\FormController->(index|list|delete|deleteAll|export)Action())'
+    'WebExcess.Form:Backend.Module.EditLabel':
+      matcher: 'method(WebExcess\Form\Controller\Module\FormController->(editLabel|renameLabel|updateLabel|deleteLabel)Action())'
+
+roles:
+  'TYPO3.Neos:Editor':
+    privileges:
+      -
+        privilegeTarget: 'WebExcess.Form:Backend.Module.Form'
+        permission: GRANT
+  'TYPO3.Neos:Administrator':
+    privileges:
+      -
+        privilegeTarget: 'WebExcess.Form:Backend.Module.EditLabel'
+        permission: GRANT

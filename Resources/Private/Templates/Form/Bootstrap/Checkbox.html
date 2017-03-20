@@ -1,0 +1,10 @@
+{namespace we=WebExcess\Form\ViewHelpers}
+<f:layout name="TYPO3.Form:Field" />
+<f:section name="field">
+	<div class="{element.renderingOptions.elementClassAttribute}">
+		<label>
+			<f:form.checkbox property="{element.identifier}" id="{element.uniqueIdentifier}" value="{element.properties.value}" errorClass="{element.renderingOptions.error.elementClassAttribute}" />
+			{element -> we:translateElementProperty(property: 'label') -> f:format.nl2br()}<f:if condition="{element.required}"><f:render partial="TYPO3.Form:Field/Required" /></f:if>
+		</label>
+	</div>
+</f:section>

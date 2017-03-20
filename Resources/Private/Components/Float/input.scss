@@ -1,0 +1,85 @@
+.form-input {
+	position: relative;
+	margin-top: $form-margin-top;
+	margin-bottom: $form-margin-bottom;
+
+	&.form-has-value .form-input-field ,
+	.form-input-field:focus {
+		color: $form-input-color;
+
+		~ .form-input-label {
+			font-size: $form-input-label-active-font-size;
+			left: 0;
+			top: 2px;
+			transform: translateY(0);
+		}
+	}
+
+	.form-input-hint {
+		position: absolute;
+	}
+}
+
+.form-input-hint {
+	font-size: $form-input-hint-font-size;
+	color: $form-input-hint-color;
+	transition: color $form-transition-speed ease;
+}
+
+.form-input-label {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+	padding-left: $form-padding-x;
+	margin-bottom: 0;
+	z-index: 1;
+	color: $form-input-label-color;
+	font-size: $form-input-label-font-size;
+	font-weight: normal;
+	transition: all $form-transition-speed ease;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.form-input-field {
+	height: $form-input-height;
+	line-height: normal;
+	border: 1px solid $form-input-border-color;
+	outline: none;
+	padding: $form-input-padding;
+	width: 100%;
+	background: $form-input-background-color;
+	color: transparent;
+	box-shadow: none;
+	transition: all $form-transition-speed ease;
+
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+		border-width: 2px;
+	}
+
+	&:focus {
+		border-color: $form-input-border-focus-color;
+
+		~ .form-input-label {
+			color: $form-input-label-focus-color;
+		}
+	}
+}
+
+.has-error {
+	.form-input-field {
+		border-color: $form-error-color;
+
+		&:focus {
+			~ .form-input-label {
+				color: $form-error-color;
+			}
+		}
+	}
+
+	.form-input-hint {
+		color: $form-error-color;
+	}
+}

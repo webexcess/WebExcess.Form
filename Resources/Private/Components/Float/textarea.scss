@@ -1,0 +1,68 @@
+.form-textarea {
+	position: relative;
+	margin-top: $form-margin-top;
+	margin-bottom: $form-margin-bottom;
+
+	&.form-has-value .form-textarea-field ,
+	.form-textarea-field:focus {
+		color: $form-input-color;
+
+		~ .form-textarea-label {
+			font-size: $form-input-label-active-font-size;
+			left: 0;
+			top: 2px;
+		}
+	}
+
+	.form-textarea-hint {
+		position: absolute;
+	}
+}
+
+.form-textarea-hint {
+	font-size: $form-input-hint-font-size;
+	color: $form-input-hint-color;
+	transition: color $form-transition-speed ease;
+}
+
+.form-textarea-label {
+	position: absolute;
+	top: 15px;
+	pointer-events: none;
+	padding-left: $form-padding-x;
+	margin-bottom: 0;
+	z-index: 1;
+	color: $form-input-label-color;
+	font-size: $form-input-label-font-size;
+	font-weight: normal;
+	transition: all $form-transition-speed ease;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.form-textarea-field {
+	height: auto;
+	min-height: $form-input-height;
+	line-height: normal;
+	border: 1px solid $form-input-border-color;
+	outline: none;
+	padding: $form-input-padding;
+	width: 100%;
+	background: $form-input-background-color;
+	color: transparent;
+	box-shadow: none;
+	transition: all $form-transition-speed ease;
+
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+		border-width: 2px;
+	}
+
+	&:focus {
+		border-color: $form-input-border-focus-color;
+
+		~ .form-textarea-label {
+			color: $form-input-label-focus-color;
+		}
+	}
+}

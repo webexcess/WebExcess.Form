@@ -1,0 +1,152 @@
+.form-checkbox-block,
+.form-checkbox-inline {
+	position: relative;
+	margin-top: $form-margin-top;
+	margin-bottom: $form-margin-bottom;
+	text-align: left;
+}
+
+.form-checkbox-inline {
+	.form-checkbox {
+		display: inline-block;
+		margin-right: $form-checkbox-inline-margin-right;
+	}
+
+	//.form-checkbox-hint {
+	//	margin-top: -$checkbox-gap;
+	//}
+}
+
+.form-checkbox-legend {
+	margin: $form-checkbox-legend-margin;
+	font-size: $form-checkbox-legend-font-size;
+	color: $form-checkbox-legend-color;
+}
+
+.form-checkbox-hint {
+	font-size: $form-checkbox-hint-font-size;
+	color: $form-checkbox-hint-color;
+	transition: color $form-transition-speed ease;
+}
+
+.form-checkbox {
+	position: relative;
+	margin-top: $form-margin-top;
+	margin-bottom: $form-margin-bottom;
+	text-align: left;
+
+	.form-checkbox-block &,
+	.form-checkbox-inline & {
+		margin-top: 0;
+		margin-bottom: $form-checkbox-margin-bottom;
+	}
+
+	label {
+		position: relative;
+		cursor: pointer;
+		padding-left: $form-checkbox-label-left;
+		margin-bottom: 0;
+		text-align: left;
+		color: $form-checkbox-label-color;
+		display: block;
+
+		&:hover {
+			.form-checkbox-button {
+				color: $form-checkbox-border-focus-color;
+			}
+		}
+	}
+
+	input {
+		width: auto;
+		opacity: 0.0001;
+		position: absolute;
+		left: 0;
+
+		&:checked {
+			// scss-lint:disable NestingDepth
+			~ .form-checkbox-button {
+				color: $form-checkbox-border-focus-color;
+
+				&::after,
+				&::before {
+					opacity: 1;
+					transition: height $form-transition-speed ease;
+				}
+
+				&::after {
+					height: ($form-checkbox-size / 2);
+				}
+
+				&::before {
+					height: ($form-checkbox-size * 1.2);
+					transition-delay: $form-transition-speed;
+				}
+			}
+		}
+	}
+
+	.form-checkbox-hint {
+		position: absolute;
+	}
+}
+
+.form-checkbox-button {
+	color: $form-checkbox-border-color;
+	position: absolute;
+	left: 0;
+	width: $form-checkbox-size;
+	height: $form-checkbox-size;
+	z-index: 0;
+	border: ($form-checkbox-size / 8) solid currentColor;
+	border-radius: ($form-checkbox-size / 16);
+	transition: border-color $form-transition-speed ease;
+
+	@if $form-checkbox-top {
+		transform: translateY($form-checkbox-top);
+	}
+
+	&::before,
+	&::after {
+		position: absolute;
+		height: 0;
+		width: ($form-checkbox-size * 0.2);
+		background-color: $form-checkbox-border-focus-color;
+		display: block;
+		transform-origin: left top;
+		border-radius: ($form-checkbox-size / 4);
+		content: '';
+		transition: opacity $form-transition-speed ease, height 0s linear $form-transition-speed;
+		opacity: 0;
+	}
+
+	&::before {
+		top: ($form-checkbox-size * 0.65);
+		left: ($form-checkbox-size * 0.38);
+		transform: rotate(-135deg);
+		box-shadow: 0 0 0 ($form-checkbox-size / 16) #fff;
+	}
+
+	&::after {
+		top: ($form-checkbox-size * 0.3);
+		left: 0;
+		transform: rotate(-45deg);
+	}
+
+}
+
+.has-error {
+	.form-checkbox-hint,
+	.form-checkbox-button {
+		color: $form-error-color;
+	}
+
+	.form-checkbox-button {
+		border-color: $form-error-color;
+
+		&::before,
+		&::after {
+			background-color: $form-error-color;
+		}
+	}
+}

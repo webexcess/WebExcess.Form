@@ -1,0 +1,155 @@
+type: 'TYPO3.Form:Form'
+identifier: 'contact'
+label: 'Contact'
+renderingOptions:
+  submitButtonLabel: 'contactFormSend'
+  renderSubmitButton: false
+renderables:
+  -
+    type: 'TYPO3.Form:Page'
+    identifier: 'page-one'
+    renderables:
+      -
+        type: 'WebExcess.Form:Column'
+        identifier: 'left'
+        renderingOptions:
+          colRenderPosition: 'first'
+        renderables:
+          -
+            type: 'TYPO3.Form:SingleSelectRadiobuttons'
+            identifier: 'title'
+            defaultValue: 'm'
+            properties:
+              options:
+                f: 'f'
+                m: 'm'
+          -
+            type: 'TYPO3.Form:SingleLineText'
+            identifier: 'firstname'
+            defaultValue: 'Max'
+            validators:
+              - identifier: 'TYPO3.Flow:NotEmpty'
+            properties:
+              elementDescription: true
+          -
+            type: 'TYPO3.Form:SingleLineText'
+            identifier: 'lastname'
+            defaultValue: 'Mustermann'
+          -
+            type: 'TYPO3.Form:SingleLineText'
+            identifier: 'address'
+            defaultValue: 'Grubenstrasse 12'
+          -
+            type: 'TYPO3.Form:SingleLineText'
+            identifier: 'zip'
+            defaultValue: '8045'
+            renderingOptions:
+              colElement: 'first'
+              colClassAttribute: 'col-sm-4'
+          -
+            type: 'TYPO3.Form:SingleLineText'
+            identifier: 'city'
+            defaultValue: 'Zürich'
+            renderingOptions:
+              colElement: 'last'
+              colClassAttribute: 'col-sm-8'
+          -
+            type: 'TYPO3.Form:SingleSelectDropdown'
+            identifier: 'country'
+            defaultValue: 'ch'
+            properties:
+              options:
+                ch: 'ch'
+                de: 'de'
+                at: 'at'
+            validators:
+              - identifier: 'TYPO3.Flow:NotEmpty'
+          -
+            type: 'TYPO3.Form:SingleLineText'
+            identifier: 'email'
+            defaultValue: 'max@muster.ch'
+            validators:
+              - identifier: 'TYPO3.Flow:NotEmpty'
+              - identifier: 'TYPO3.Flow:EmailAddress'
+            properties:
+              type: 'email'
+              placeholder: true
+          -
+            type: 'TYPO3.Form:SingleLineText'
+            identifier: 'phone'
+            defaultValue: '1234567890'
+          -
+            type: 'TYPO3.Form:Checkbox'
+            identifier: 'newsletter'
+      -
+        type: 'WebExcess.Form:Column'
+        identifier: 'right'
+        renderingOptions:
+          colRenderPosition: 'last'
+        renderables:
+          -
+            type: 'TYPO3.Form:SingleLineText'
+            identifier: 'day'
+            defaultValue: '21'
+            renderingOptions:
+              colElement: 'first'
+              colClassAttribute: 'col-sm-4'
+          -
+            type: 'TYPO3.Form:SingleLineText'
+            identifier: 'month'
+            defaultValue: '03'
+            renderingOptions:
+              colElement: 'middle'
+              colClassAttribute: 'col-sm-4'
+          -
+            type: 'TYPO3.Form:SingleLineText'
+            identifier: 'year'
+            renderingOptions:
+              colElement: 'last'
+              colClassAttribute: 'col-sm-4'
+          -
+            type: 'TYPO3.Form:MultipleSelectDropdown'
+            identifier: 'tags'
+            properties:
+              options:
+                1: '1'
+                2: '2'
+                3: '3'
+                4: '4'
+                5: '5'
+          -
+            type: 'TYPO3.Form:MultipleSelectCheckboxes'
+            identifier: 'contactType'
+            defaultValue: ['email']
+            properties:
+              options:
+                email: 'email'
+                phone: 'phone'
+            validators:
+              - identifier: 'TYPO3.Flow:NotEmpty'
+          -
+            type: 'TYPO3.Form:MultiLineText'
+            identifier: 'message'
+            defaultValue: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.'
+            properties:
+              rows: 8
+              placeholder: true
+          -
+            type: 'WebExcess.Form:Submit'
+            identifier: 'contactFormSend'
+finishers:
+  -
+    identifier: 'WebExcess.Form:SaveToDatabase'
+  -
+    identifier: 'WebExcess.Form:Email'
+    options:
+      subject: '{node.subject}'
+      replyToAddress: '{email}'
+      senderName: '{firstname} {name}'
+      senderAddress: '{email}'
+      recipientAddress: '{node.recipientAddress}'
+  -
+    identifier: 'TYPO3.Form:Confirmation'
+    options:
+      translation.id: 'confirmation.contact'
+      translation.source: 'Forms'

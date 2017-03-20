@@ -1,0 +1,62 @@
+'WebExcess.Form:SubjectMixin':
+  abstract: true
+  ui:
+    inspector:
+      groups:
+        settings:
+          label: i18n
+          icon: 'icon-cog'
+          position: 50
+  properties:
+    subject:
+      type: string
+      ui:
+        label: i18n
+        inspector:
+          group: 'settings'
+
+'WebExcess.Form:RecipientMixin':
+  abstract: true
+  ui:
+    inspector:
+      groups:
+        recipient:
+          label: i18n
+          icon: 'icon-reply'
+          position: 100
+  properties:
+    recipientName:
+      type: string
+      ui:
+        label: i18n
+        inspector:
+          group: 'recipient'
+    recipientAddress:
+      type: string
+      ui:
+        label: i18n
+        inspector:
+          group: 'recipient'
+
+'WebExcess.Form:SenderMixin':
+  abstract: true
+  ui:
+    inspector:
+      groups:
+        sender:
+          label: i18n
+          icon: 'icon-share'
+          position: 150
+  properties:
+    senderName:
+      type: string
+      ui:
+        label: i18n
+        inspector:
+          group: 'sender'
+    senderAddress:
+      type: string
+      ui:
+        label: i18n
+        inspector:
+          group: 'sender'

@@ -1,0 +1,124 @@
+.form-radio-block,
+.form-radio-inline {
+	position: relative;
+	margin-top: $form-margin-top;
+	margin-bottom: $form-margin-bottom;
+	text-align: left;
+
+	.form-radio-hint {
+		position: absolute;
+	}
+}
+
+.form-radio-inline {
+	.form-radio {
+		display: inline-block;
+		margin-right: $form-radio-inline-margin-right;
+	}
+}
+
+.form-radio-legend {
+	margin: $form-radio-legend-margin;
+	font-size: $form-radio-legend-font-size;
+	color: $form-radio-legend-color;
+}
+
+.form-radio-hint {
+	font-size: $form-radio-hint-font-size;
+	color: $form-radio-hint-color;
+	transition: color $form-transition-speed ease;
+}
+
+.form-radio {
+	margin-bottom: $form-radio-margin-bottom;
+
+	label {
+		position: relative;
+		cursor: pointer;
+		padding-left: $form-radio-label-left;
+		margin-bottom: 0;
+		text-align: left;
+		color: $form-radio-label-color;
+		display: block;
+
+		&:hover .form-radio-button {
+			color: $form-radio-border-focus-color;
+		}
+
+		span {
+			display: block;
+		}
+	}
+
+	input {
+		// scss-lint:disable NestingDepth
+		width: auto;
+		opacity: 0.0001;
+		position: absolute;
+		left: 0;
+		margin: 0;
+		padding: 0;
+
+		&:checked {
+			~ .form-radio-button {
+				&::after {
+					transform: scale(0.5);
+				}
+
+				&::before {
+					color: $form-radio-border-focus-color;
+				}
+			}
+		}
+	}
+
+	.form-radio-hint {
+		position: absolute;
+	}
+}
+
+.form-radio-button {
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	display: block;
+	user-select: none;
+	color: $form-radio-border-color;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		margin: $form-radio-spacer;
+		width: $form-radio-size;
+		height: $form-radio-size;
+		transition: transform $form-transition-speed ease;
+		border-radius: 50%;
+		border: ($form-radio-size / 8) solid currentColor;
+	}
+
+	&::after {
+		transform: scale(0);
+		background-color: $form-radio-border-focus-color;
+		border-color: $form-radio-border-focus-color;
+	}
+}
+
+.has-error {
+	.form-radio-hint,
+	.form-radio-button {
+		color: $form-error-color;
+
+		&::before {
+			border-color: $form-error-color;
+		}
+
+		&::after {
+			background-color: $form-error-color;
+			border-color: $form-error-color;
+		}
+	}
+}

@@ -1,0 +1,10 @@
+{namespace form=TYPO3\Form\ViewHelpers}
+{namespace we=WebExcess\Form\ViewHelpers}
+<fieldset id="{section.uniqueIdentifier}"{f:if(condition: section.properties.elementClassAttribute, then: ' class="{section.properties.elementClassAttribute}"')}>
+	<f:if condition="{section.renderingOptions.showLegend}">
+		<legend>{section -> we:translateElementProperty(property: 'label') -> f:format.nl2br()}</legend>
+	</f:if>
+	<f:for each="{section.elements}" as="element">
+		<form:renderRenderable renderable="{element}" />
+	</f:for>
+</fieldset>
