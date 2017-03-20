@@ -2,15 +2,16 @@
 [![Latest Stable Version](https://poser.pugx.org/webexcess/form/v/stable)](https://packagist.org/packages/webexcess/form)
 [![License](https://poser.pugx.org/webexcess/form/license)](https://packagist.org/packages/webexcess/form)
 
-This package extends the default typo3/form plugin with different presets (Bootstrap, Foundation, Material Design, Floating Label). Further it handels translation for labels and placeholders.
+This package extends the default neos/form plugin with different presets (Bootstrap, Foundation, Material Design, Floating Label). Further it handels translation for labels and placeholders.
 
 With the WebExcess.Form Package you also have the possibility to save the entered formdata to the database.
 
 ## Compatibility and Maintenance
-WebExcess.Form is currently being maintained for Neos 2.3 LTS
+WebExcess.Form is currently being maintained for Neos 2.3 LTS and Neos 3.x.
 
 | Neos Version | WebExcess.Form Version | Maintained |
 |--------------|------------------------|------------|
+| Neos 3.x     | 2.x                    | YES        |
 | Neos 2.3 LTS | 1.x                    | YES        |
 
 ## Installation
