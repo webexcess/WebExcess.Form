@@ -1,7 +1,6 @@
 {
     "name": "webexcess/form",
     "type": "typo3-flow-plugin",
-    "version": "1.0.0",
     "license": "MIT",
     "description": "Extends the default typo3 form plugin.",
     "keywords": ["flow", "neos", "form"],
