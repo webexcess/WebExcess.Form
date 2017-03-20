@@ -1,15 +1,15 @@
-{namespace form=TYPO3\Form\ViewHelpers}
+{namespace form=Neos\Form\ViewHelpers}
 {namespace we=WebExcess\Form\ViewHelpers}
 <f:form.validationResults for="{element.identifier}">
 	<f:if condition="{element.renderingOptions.colElement}=='first'">
 		<div class="{element.renderingOptions.rowClassAttribute}">
 	</f:if>
 
-	<f:if condition="{element.type}!='TYPO3.Form:Checkbox'">
+	<f:if condition="{element.type}!='Neos.Form:Checkbox'">
 		<f:then>
 			<fieldset class="{f:if(condition: element.renderingOptions.colElement, then: '{element.renderingOptions.colClassAttribute} ')}{element.renderingOptions.containerClassAttribute}{f:if(condition: element.renderingOptions.inlineStyle, then: ' {element.renderingOptions.inlineClassAttribute}', else: ' {element.renderingOptions.blockClassAttribute}')}{f:if(condition: validationResults.flattenedErrors, then: ' {element.renderingOptions.error.containerClassAttribute}')}"<f:if condition="{element.rootForm.renderingOptions.previewMode}"> data-element="{form:form.formElementRootlinePath(renderable:element)}"</f:if>>
 				<f:if condition="{element.renderingOptions.renderLabel}">
-					<legend>{element -> we:translateElementProperty(property: 'label') -> f:format.nl2br()}<f:if condition="{element.required}"><f:render partial="TYPO3.Form:Field/Required" /></f:if></legend>
+					<legend>{element -> we:translateElementProperty(property: 'label') -> f:format.nl2br()}<f:if condition="{element.required}"><f:render partial="Neos.Form:Field/Required" /></f:if></legend>
 				</f:if>
 		</f:then>
 		<f:else>
@@ -29,7 +29,7 @@
 			<span class="{element.renderingOptions.description.elementClassAttribute}">{element -> we:translateElementProperty(property: 'description') -> f:format.nl2br()}</span>
 		</f:if>
 
-	<f:if condition="{element.type}!='TYPO3.Form:Checkbox'">
+	<f:if condition="{element.type}!='Neos.Form:Checkbox'">
 		<f:then></fieldset></f:then>
 		<f:else></div></f:else>
 	</f:if>

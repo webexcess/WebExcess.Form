@@ -2,7 +2,7 @@
 namespace WebExcess\Form\ViewHelpers\Type;
 
 /*
- * This file is part of the TYPO3.Fluid package.
+ * This file is part of the Neos.Neos package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -11,7 +11,7 @@ namespace WebExcess\Form\ViewHelpers\Type;
  * source code.
  */
 
-use TYPO3\Fluid\Core\ViewHelper\AbstractConditionViewHelper;
+use Neos\FluidAdaptor\Core\ViewHelper\AbstractConditionViewHelper;
 
 class IsArrayViewHelper extends AbstractConditionViewHelper
 {

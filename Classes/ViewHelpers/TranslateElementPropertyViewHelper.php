@@ -2,7 +2,7 @@
 namespace WebExcess\Form\ViewHelpers;
 
 /*
- * This file is part of the TYPO3.Form package.
+ * This file is part of the Neos.Neos package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -11,12 +11,11 @@ namespace WebExcess\Form\ViewHelpers;
  * source code.
  */
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\I18n\Translator;
-use TYPO3\Flow\Resource\Exception as ResourceException;
-use TYPO3\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3\Fluid\Core\ViewHelper\Exception as ViewHelperException;
-use TYPO3\Form\Core\Model\FormElementInterface;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\I18n\Translator;
+use Neos\FluidAdaptor\Core\ViewHelper\AbstractViewHelper;
+use Neos\FluidAdaptor\Core\ViewHelper\Exception as ViewHelperException;
+use Neos\Form\Core\Model\FormElementInterface;
 
 use WebExcess\Form\Service\FormHelperService;
 

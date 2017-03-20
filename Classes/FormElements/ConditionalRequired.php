@@ -1,7 +1,17 @@
 <?php
 namespace WebExcess\Form\FormElements;
 
-class ConditionalRequired extends \TYPO3\Form\Core\Model\AbstractFormElement
+/*
+ * This file is part of the Neos.Neos package.
+ *
+ * (c) Contributors of the Neos Project - www.neos.io
+ *
+ * This package is Open Source Software. For the full copyright and license
+ * information, please view the LICENSE file which was distributed with this
+ * source code.
+ */
+
+class ConditionalRequired extends \Neos\Form\Core\Model\AbstractFormElement
 {
 
     /**
@@ -17,10 +27,10 @@ class ConditionalRequired extends \TYPO3\Form\Core\Model\AbstractFormElement
     /**
      * Executed before the current element is outputted to the client
      *
-     * @param \TYPO3\Form\Core\Runtime\FormRuntime $formRuntime
+     * @param \Neos\Form\Core\Runtime\FormRuntime $formRuntime
      * @return void
      */
-    public function beforeRendering(\TYPO3\Form\Core\Runtime\FormRuntime $formRuntime)
+    public function beforeRendering(\Neos\Form\Core\Runtime\FormRuntime $formRuntime)
     {
         $this->requireIfTriggerIsSet($formRuntime->getFormState());
     }
@@ -28,11 +38,11 @@ class ConditionalRequired extends \TYPO3\Form\Core\Model\AbstractFormElement
     /**
      * Executed after the page containing the current element has been submitted
      *
-     * @param \TYPO3\Form\Core\Runtime\FormRuntime $formRuntime
+     * @param \Neos\Form\Core\Runtime\FormRuntime $formRuntime
      * @param mixed $elementValue raw value of the submitted element
      * @return void
      */
-    public function onSubmit(\TYPO3\Form\Core\Runtime\FormRuntime $formRuntime, &$elementValue)
+    public function onSubmit(\Neos\Form\Core\Runtime\FormRuntime $formRuntime, &$elementValue)
     {
         $this->requireIfTriggerIsSet($formRuntime->getFormState());
     }
@@ -41,10 +51,10 @@ class ConditionalRequired extends \TYPO3\Form\Core\Model\AbstractFormElement
      * Adds a NotEmptyValidator to the current element if the "trigger" value is not empty.
      * The trigger can be configured with $this->properties['triggerPropertyPath']
      *
-     * @param \TYPO3\Form\Core\Runtime\FormState $formState
+     * @param \Neos\Form\Core\Runtime\FormState $formState
      * @return void
      */
-    protected function requireIfTriggerIsSet(\TYPO3\Form\Core\Runtime\FormState $formState)
+    protected function requireIfTriggerIsSet(\Neos\Form\Core\Runtime\FormState $formState)
     {
         $field = $this->properties['triggerPropertyField'];
         $type = isset($this->properties['triggerPropertyType']) ? $this->properties['triggerPropertyType'] : 'input';
@@ -66,6 +76,6 @@ class ConditionalRequired extends \TYPO3\Form\Core\Model\AbstractFormElement
             }
         }
 
-        $this->addValidator(new \TYPO3\Flow\Validation\Validator\NotEmptyValidator());
+        $this->addValidator(new \Neos\Flow\Validation\Validator\NotEmptyValidator());
     }
 }

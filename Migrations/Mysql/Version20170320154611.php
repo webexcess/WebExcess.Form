@@ -1,5 +1,5 @@
 <?php
-namespace TYPO3\Flow\Persistence\Doctrine\Migrations;
+namespace Neos\Flow\Persistence\Doctrine\Migrations;
 
 use Doctrine\DBAL\Migrations\AbstractMigration;
 use Doctrine\DBAL\Schema\Schema;
@@ -7,7 +7,7 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs! This block will be used as the migration description if getDescription() is not used.
  */
-class Version20170320135124 extends AbstractMigration
+class Version20170320154611 extends AbstractMigration
 {
 
     /**

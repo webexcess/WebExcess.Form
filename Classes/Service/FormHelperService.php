@@ -2,7 +2,7 @@
 namespace WebExcess\Form\Service;
 
 /*
- * This file is part of the TYPO3.Neos package.
+ * This file is part of the Neos.Neos package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -11,13 +11,13 @@ namespace WebExcess\Form\Service;
  * source code.
  */
 
-use TYPO3\Flow\Annotations as Flow;
+use Neos\Flow\Annotations as Flow;
 use WebExcess\Form\Domain\Model\Form;
 use WebExcess\Form\Domain\Repository\FormRepository;
-use TYPO3\Form\Core\Model\FormElementInterface;
-use TYPO3\Form\Core\Runtime\FormRuntime;
-use TYPO3\Flow\I18n\Translator;
-use TYPO3\Flow\Resource\Exception as ResourceException;
+use Neos\Form\Core\Model\FormElementInterface;
+use Neos\Form\Core\Runtime\FormRuntime;
+use Neos\Flow\I18n\Translator;
+use Neos\Flow\ResourceManagement\Exception as ResourceException;
 
 /**
  * @Flow\Scope("singleton")
@@ -33,7 +33,7 @@ class FormHelperService
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+     * @var \Neos\Flow\Persistence\PersistenceManagerInterface
      */
     protected $persistenceManager;
 
@@ -124,11 +124,11 @@ class FormHelperService
     /**
      * @param string $property
      * @param FormElementInterface $element
-     * @param \TYPO3\Flow\I18n\Locale|null $locale
+     * @param \Neos\Flow\I18n\Locale|null $locale
      * @param boolean $outputId
      * @return string
      */
-    public function getTranslatedLabel($property, FormElementInterface $element, \TYPO3\Flow\I18n\Locale $locale = null, $outputId = false)
+    public function getTranslatedLabel($property, FormElementInterface $element, \Neos\Flow\I18n\Locale $locale = null, $outputId = false)
     {
         if ($property === 'label') {
             $defaultValue = $element->getLabel();

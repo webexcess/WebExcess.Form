@@ -1,4 +1,4 @@
-{namespace form=TYPO3\Form\ViewHelpers}
+{namespace form=Neos\Form\ViewHelpers}
 {namespace we=WebExcess\Form\ViewHelpers}
 <f:form.validationResults for="{element.identifier}">
 	<f:if condition="{element.renderingOptions.colElement}=='first'">
@@ -9,7 +9,7 @@
 		<label{f:if(condition: validationResults.flattenedErrors, then: ' class="{element.renderingOptions.error.containerClassAttribute}"')}>
 
 			<f:if condition="{element.renderingOptions.renderLabel}">
-				{element -> we:translateElementProperty(property: 'label') -> f:format.nl2br()}<f:if condition="{element.required}"><f:render partial="TYPO3.Form:Field/Required" /></f:if>
+				{element -> we:translateElementProperty(property: 'label') -> f:format.nl2br()}<f:if condition="{element.required}"><f:render partial="Neos.Form:Field/Required" /></f:if>
 			</f:if>
 
 			<f:render section="field" />

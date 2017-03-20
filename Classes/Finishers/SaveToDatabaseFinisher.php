@@ -1,18 +1,23 @@
 <?php
 namespace WebExcess\Form\Finishers;
 
-use TYPO3\Flow\Annotations as Flow;
+/*
+ * This file is part of the Neos.Neos package.
+ *
+ * (c) Contributors of the Neos Project - www.neos.io
+ *
+ * This package is Open Source Software. For the full copyright and license
+ * information, please view the LICENSE file which was distributed with this
+ * source code.
+ */
+
+use Neos\Flow\Annotations as Flow;
+use Neos\Form\Core\Model\AbstractFinisher;
 use WebExcess\Form\Service\FormHelperService;
 use WebExcess\Form\Domain\Repository\FormRepository;
 use WebExcess\Form\Domain\Model\Form;
 
-/**
- * This finisher uploads images to the given folder
- *
- * - folder (mandatory): folder relativ to the /Web folder
- * - allowedTypes (mandatory): array of allowed file types
- */
-class SaveToDatabaseFinisher extends \TYPO3\Form\Core\Model\AbstractFinisher
+class SaveToDatabaseFinisher extends AbstractFinisher
 {
 
     /**
@@ -38,19 +43,19 @@ class SaveToDatabaseFinisher extends \TYPO3\Form\Core\Model\AbstractFinisher
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Form\Persistence\YamlPersistenceManager
+     * @var \Neos\Form\Persistence\YamlPersistenceManager
      */
     protected $yamlPersistenceManager;
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+     * @var \Neos\Flow\Persistence\PersistenceManagerInterface
      */
     protected $persistenceManager;
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Flow\I18n\Service
+     * @var \Neos\Flow\I18n\Service
      */
     protected $i18nService;
 
@@ -60,7 +65,7 @@ class SaveToDatabaseFinisher extends \TYPO3\Form\Core\Model\AbstractFinisher
      * @see AbstractFinisher::execute()
      *
      * @return void
-     * @throws \TYPO3\Form\Exception\FinisherException
+     * @throws \Neos\Form\Exception\FinisherException
      */
     protected function executeInternal()
     {
@@ -107,7 +112,7 @@ class SaveToDatabaseFinisher extends \TYPO3\Form\Core\Model\AbstractFinisher
             }
 
             if ($this->parseOption('debug') == true) {
-                \TYPO3\Flow\var_dump($postValues); exit;
+                \Neos\Flow\var_dump($postValues); exit;
             } else {
                 if (!empty($postValues)) {
                     $formData = new Form();

@@ -1,6 +1,6 @@
-TYPO3:
+Neos:
   Neos:
-    typoScript:
+    fusion:
       autoInclude:
         'WebExcess.Form': true
     userInterface:
@@ -25,16 +25,16 @@ TYPO3:
         parentPreset: 'default'
         title: 'WebExcess'
         formElementTypes:
-          TYPO3.Form:Base:
+          Neos.Form:Base:
             renderingOptions:
               layoutPathPattern: 'resource://WebExcess.Form/Private/Layouts/WebExcess/{@type}.html'
               partialPathPattern: 'resource://WebExcess.Form/Private/Partials/WebExcess/{@type}.html'
               translationPackage: 'WebExcess.Form'
               translationFile: 'Forms'
-              translationErrorPackage: 'TYPO3.Flow'
+              translationErrorPackage: 'Neos.Flow'
               #translateBy: false # 'id' || 'label'
               translateBy: 'id'
-          TYPO3.Form:Form:
+          Neos.Form:Form:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/Form.html'
               containerClassAttribute: '' # class for <form />
@@ -45,7 +45,7 @@ TYPO3:
                 previousClassAttribute: 'btn btn-cancel'
                 nextClassAttribute: 'btn btn-primary'
                 submitClassAttribute: 'btn btn-primary'
-          TYPO3.Form:FormElement:
+          Neos.Form:FormElement:
             renderingOptions:
               containerClassAttribute: 'clearfix'
               elementClassAttribute: ''
@@ -63,50 +63,50 @@ TYPO3:
                 message:
                   containerClassAttribute: 'help-inline'
                   elementClassAttribute: ''
-          TYPO3.Form:Section:
+          Neos.Form:Section:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/Section.html'
               showLegend: true
-          TYPO3.Form:SingleLineText:
+          Neos.Form:SingleLineText:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/SingleLineText.html'
             properties:
               type: 'text'
-          TYPO3.Form:MultiLineText:
+          Neos.Form:MultiLineText:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/MultiLineText.html'
               elementClassAttribute: 'xxlarge'
-          TYPO3.Form:Checkbox:
+          Neos.Form:Checkbox:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/Checkbox.html'
               renderLabel: false
-          TYPO3.Form:MultipleSelectCheckboxes:
+          Neos.Form:MultipleSelectCheckboxes:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/MultipleSelectCheckboxes.html'
               inlineStyle: true
               inlineClassAttribute: 'inline'
               blockClassAttribute: 'block'
-          TYPO3.Form:SingleSelectRadiobuttons:
+          Neos.Form:SingleSelectRadiobuttons:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/SingleSelectRadiobuttons.html'
               inlineStyle: true
               inlineClassAttribute: 'inline'
               blockClassAttribute: 'block'
-          TYPO3.Form:SingleSelectDropdown:
+          Neos.Form:SingleSelectDropdown:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/SingleSelectDropdown.html'
               translateBy: 'id'
             properties:
               prependOption: false
-          TYPO3.Form:MultipleSelectDropdown:
+          Neos.Form:MultipleSelectDropdown:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/MultipleSelectDropdown.html'
-          TYPO3.Form:StaticText:
+          Neos.Form:StaticText:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/StaticText.html'
           WebExcess.Form:Spinner:
             superTypes:
-              TYPO3.Form:SingleLineText: true
+              Neos.Form:SingleLineText: true
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/Spinner.html'
               elementClassAttribute: 'input-spinner'
@@ -114,8 +114,8 @@ TYPO3:
               min: 0
           WebExcess.Form:Submit:
             superTypes:
-              TYPO3.Form:FormElement: true
-              TYPO3.Form:TextMixin: true
+              Neos.Form:FormElement: true
+              Neos.Form:TextMixin: true
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/Submit.html'
               containerClassAttribute: 'clearfix'
@@ -123,8 +123,8 @@ TYPO3:
               submitButtonLabel: 'defaultFormSend'
           WebExcess.Form:Column:
             superTypes:
-              TYPO3.Form:FormElement: true
-            implementationClassName: 'TYPO3\Form\FormElements\Section'
+              Neos.Form:FormElement: true
+            implementationClassName: 'Neos\Form\FormElements\Section'
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/Column.html'
               renderableNameInTemplate: 'section'
@@ -134,7 +134,7 @@ TYPO3:
 
           WebExcess.Form:ConditionalRequiredSingleLineText:
             superTypes:
-              TYPO3.Form:SingleLineText: true
+              Neos.Form:SingleLineText: true
             implementationClassName: 'WebExcess\Form\FormElements\ConditionalRequired'
             #properties:
             #  triggerPropertyField: 'location'
@@ -160,18 +160,18 @@ TYPO3:
         parentPreset: 'webexcess'
         title: 'Bootstrap by WebExcess'
         formElementTypes:
-          TYPO3.Form:Base:
+          Neos.Form:Base:
             renderingOptions:
               layoutPathPattern: 'resource://WebExcess.Form/Private/Layouts/Bootstrap/{@type}.html'
               partialPathPattern: 'resource://WebExcess.Form/Private/Partials/Bootstrap/{@type}.html'
-          TYPO3.Form:Page:
+          Neos.Form:Page:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Bootstrap/Page.html'
-          TYPO3.Form:Form:
+          Neos.Form:Form:
             renderingOptions:
               button:
                 containerClassAttribute: 'form-footer'
-          TYPO3.Form:FormElement:
+          Neos.Form:FormElement:
             renderingOptions:
               containerClassAttribute: 'form-group'
               elementClassAttribute: 'form-control'
@@ -182,26 +182,26 @@ TYPO3:
                 containerClassAttribute: 'has-danger'
                 message:
                   containerClassAttribute: 'text-muted'
-          TYPO3.Form:MultiLineText:
+          Neos.Form:MultiLineText:
             renderingOptions:
               elementClassAttribute: 'form-control'
-          TYPO3.Form:Checkbox:
+          Neos.Form:Checkbox:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Bootstrap/Checkbox.html'
               elementClassAttribute: 'checkbox'
-          TYPO3.Form:MultipleSelectCheckboxes:
+          Neos.Form:MultipleSelectCheckboxes:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Bootstrap/MultipleSelectCheckboxes.html'
               elementClassAttribute: 'checkbox'
               inlineStyle: false
               inlineClassAttribute: 'checkbox-inline'
-          TYPO3.Form:SingleSelectRadiobuttons:
+          Neos.Form:SingleSelectRadiobuttons:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Bootstrap/SingleSelectRadiobuttons.html'
               elementClassAttribute: 'radio'
               inlineStyle: false
               inlineClassAttribute: 'radio-inline'
-          Dotpulse.Form:Submit:
+          WebExcess.Form:Submit:
             renderingOptions:
               containerClassAttribute: 'form-group'
 
@@ -209,21 +209,21 @@ TYPO3:
         parentPreset: 'webexcess'
         title: 'Foundation by WebExcess'
         formElementTypes:
-          TYPO3.Form:Base:
+          Neos.Form:Base:
             renderingOptions:
               layoutPathPattern: 'resource://WebExcess.Form/Private/Layouts/Foundation/{@type}.html'
               partialPathPattern: 'resource://WebExcess.Form/Private/Partials/Foundation/{@type}.html'
-          TYPO3.Form:Page:
+          Neos.Form:Page:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Foundation/Page.html'
-          TYPO3.Form:Form:
+          Neos.Form:Form:
             renderingOptions:
               button:
                 containerClassAttribute: 'form-footer'
                 previousClassAttribute: 'button alert'
                 nextClassAttribute: 'button'
                 submitClassAttribute: 'button'
-          TYPO3.Form:FormElement:
+          Neos.Form:FormElement:
             renderingOptions:
               containerClassAttribute: 'form-group'
               elementClassAttribute: 'form-control'
@@ -236,17 +236,17 @@ TYPO3:
                 message:
                   containerClassAttribute: 'text-muted'
                   elementClassAttribute: 'is-invalid-input'
-          TYPO3.Form:MultiLineText:
+          Neos.Form:MultiLineText:
             renderingOptions:
               elementClassAttribute: ''
-          TYPO3.Form:Checkbox:
+          Neos.Form:Checkbox:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Foundation/Checkbox.html'
-          TYPO3.Form:MultipleSelectCheckboxes:
+          Neos.Form:MultipleSelectCheckboxes:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Foundation/MultipleSelectCheckboxes.html'
               inlineStyle: true
-          TYPO3.Form:SingleSelectRadiobuttons:
+          Neos.Form:SingleSelectRadiobuttons:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Foundation/SingleSelectRadiobuttons.html'
               inlineStyle: true
@@ -262,14 +262,14 @@ TYPO3:
         parentPreset: 'webexcess'
         title: 'Material by WebExcess'
         formElementTypes:
-          TYPO3.Form:Base:
+          Neos.Form:Base:
             renderingOptions:
               layoutPathPattern: 'resource://WebExcess.Form/Private/Layouts/Material/{@type}.html'
               partialPathPattern: 'resource://WebExcess.Form/Private/Partials/Material/{@type}.html'
-          TYPO3.Form:Page:
+          Neos.Form:Page:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Material/Page.html'
-          TYPO3.Form:Form:
+          Neos.Form:Form:
             renderingOptions:
               containerClassAttribute: 'form-styled'
               button:
@@ -277,7 +277,7 @@ TYPO3:
                 previousClassAttribute: 'mf-button mf-button-cancel'
                 nextClassAttribute: 'mf-button'
                 submitClassAttribute: 'mf-button'
-          TYPO3.Form:FormElement:
+          Neos.Form:FormElement:
             renderingOptions:
               containerClassAttribute: ''
               rowClassAttribute: 'row mf-row'
@@ -287,7 +287,7 @@ TYPO3:
                 containerClassAttribute: 'mf-has-error'
                 message:
                   containerClassAttribute: 'mf-input-hint'
-          TYPO3.Form:SingleLineText:
+          Neos.Form:SingleLineText:
             renderingOptions:
               containerClassAttribute: 'mf-input'
               elementClassAttribute: 'mf-input-field'
@@ -295,7 +295,7 @@ TYPO3:
               helperBarClass: 'mf-input-bar'
               description:
                 elementClassAttribute: 'mf-input-hint'
-          TYPO3.Form:MultiLineText:
+          Neos.Form:MultiLineText:
             renderingOptions:
               containerClassAttribute: 'mf-textarea'
               elementClassAttribute: 'mf-textarea-field'
@@ -303,7 +303,7 @@ TYPO3:
               helperBarClass: 'mf-textarea-bar'
               description:
                 elementClassAttribute: 'mf-textarea-hint'
-          TYPO3.Form:Checkbox:
+          Neos.Form:Checkbox:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Material/Checkbox.html'
               elementClassAttribute: 'mf-checkbox'
@@ -311,7 +311,7 @@ TYPO3:
               helperBarClass: 'mf-checkbox-button'
               description:
                 elementClassAttribute: 'mf-checkbox-hint'
-          TYPO3.Form:MultipleSelectCheckboxes:
+          Neos.Form:MultipleSelectCheckboxes:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Material/MultipleSelectCheckboxes.html'
               inlineClassAttribute: 'mf-checkbox-inline'
@@ -321,7 +321,7 @@ TYPO3:
               helperBarClass: 'mf-checkbox-button'
               description:
                 elementClassAttribute: 'mf-checkbox-hint'
-          TYPO3.Form:SingleSelectRadiobuttons:
+          Neos.Form:SingleSelectRadiobuttons:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Material/SingleSelectRadiobuttons.html'
               inlineClassAttribute: 'mf-radio-inline'
@@ -331,7 +331,7 @@ TYPO3:
               helperBarClass: 'mf-radio-button'
               description:
                 elementClassAttribute: 'mf-radio-hint'
-          TYPO3.Form:SingleSelectDropdown:
+          Neos.Form:SingleSelectDropdown:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Material/SingleSelectDropdown.html'
               containerClassAttribute: 'mf-select'
@@ -344,7 +344,7 @@ TYPO3:
                   containerClassAttribute: 'mf-select-hint'
             properties:
               prependOption: true
-          TYPO3.Form:MultipleSelectDropdown:
+          Neos.Form:MultipleSelectDropdown:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Material/MultipleSelectDropdown.html'
               containerClassAttribute: 'mf-select'
@@ -369,38 +369,38 @@ TYPO3:
         parentPreset: 'material'
         title: 'Floating label by WebExcess'
         formElementTypes:
-          TYPO3.Form:Base:
+          Neos.Form:Base:
             renderingOptions:
               layoutPathPattern: 'resource://WebExcess.Form/Private/Layouts/Float/{@type}.html'
-          TYPO3.Form:Form:
+          Neos.Form:Form:
             renderingOptions:
               button:
                 containerClassAttribute: 'form-actions'
                 previousClassAttribute: 'form-button form-button-cancel'
                 nextClassAttribute: 'form-button'
                 submitClassAttribute: 'form-button'
-          TYPO3.Form:FormElement:
+          Neos.Form:FormElement:
             renderingOptions:
               rowClassAttribute: 'row form-row'
               error:
                 containerClassAttribute: 'has-error'
                 message:
                   containerClassAttribute: 'form-input-hint'
-          TYPO3.Form:SingleLineText:
+          Neos.Form:SingleLineText:
             renderingOptions:
               containerClassAttribute: 'form-input'
               elementClassAttribute: 'form-input-field'
               labelClassAttribute: 'form-input-label'
               description:
                 elementClassAttribute: 'form-input-hint'
-          TYPO3.Form:MultiLineText:
+          Neos.Form:MultiLineText:
             renderingOptions:
               containerClassAttribute: 'form-textarea'
               elementClassAttribute: 'form-textarea-field'
               labelClassAttribute: 'form-textarea-label'
               description:
                 elementClassAttribute: 'form-textarea-hint'
-          TYPO3.Form:Checkbox:
+          Neos.Form:Checkbox:
             renderingOptions:
               elementClassAttribute: 'form-checkbox'
               labelClassAttribute: 'form-checkbox-legend'
@@ -410,7 +410,7 @@ TYPO3:
               error:
                 message:
                   containerClassAttribute: 'form-checkbox-hint'
-          TYPO3.Form:MultipleSelectCheckboxes:
+          Neos.Form:MultipleSelectCheckboxes:
             renderingOptions:
               inlineClassAttribute: 'form-checkbox-inline'
               blockClassAttribute: 'form-checkbox-block'
@@ -422,7 +422,7 @@ TYPO3:
               error:
                 message:
                   containerClassAttribute: 'form-checkbox-hint'
-          TYPO3.Form:SingleSelectRadiobuttons:
+          Neos.Form:SingleSelectRadiobuttons:
             renderingOptions:
               inlineClassAttribute: 'form-radio-inline'
               blockClassAttribute: 'form-radio-block'
@@ -434,7 +434,7 @@ TYPO3:
               error:
                 message:
                   containerClassAttribute: 'form-radio-hint'
-          TYPO3.Form:SingleSelectDropdown:
+          Neos.Form:SingleSelectDropdown:
             renderingOptions:
               containerClassAttribute: 'form-select'
               elementClassAttribute: 'form-select-field'
@@ -444,7 +444,7 @@ TYPO3:
               error:
                 message:
                   containerClassAttribute: 'form-select-hint'
-          TYPO3.Form:MultipleSelectDropdown:
+          Neos.Form:MultipleSelectDropdown:
             renderingOptions:
               containerClassAttribute: 'form-select'
               elementClassAttribute: 'form-select-field'

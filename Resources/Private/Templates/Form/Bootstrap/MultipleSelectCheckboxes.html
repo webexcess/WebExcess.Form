@@ -1,5 +1,5 @@
 {namespace we=WebExcess\Form\ViewHelpers}
-<f:layout name="TYPO3.Form:Field" />
+<f:layout name="Neos.Form:Field" />
 <f:section name="field">
 	<f:for each="{element.properties.options}" as="label" key="value">
 		<f:if condition="{element.renderingOptions.inlineStyle}==0">
@@ -12,7 +12,7 @@
 				{element -> we:translateElementProperty(property: 'options.{value}') -> f:format.nl2br()}
 				<f:if condition="{element.renderingOptions.renderLabel}==0">
 					<f:if condition="{element.required}">
-						<f:render partial="TYPO3.Form:Field/Required" />
+						<f:render partial="Neos.Form:Field/Required" />
 					</f:if>
 				</f:if>
 			</span>

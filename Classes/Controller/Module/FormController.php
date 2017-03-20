@@ -1,29 +1,28 @@
 <?php
 namespace WebExcess\Form\Controller\Module;
 
-/*                                                                        *
- * This script belongs to the TYPO3 Flow package "TYPO3.Neos".            *
- *                                                                        *
- * It is free software; you can redistribute it and/or modify it under    *
- * the terms of the GNU General Public License, either version 3 of the   *
- * License, or (at your option) any later version.                        *
- *                                                                        *
- * The TYPO3 project - inspiring people to share!                         *
- *                                                                        */
+/*
+ * This file is part of the Neos.Neos package.
+ *
+ * (c) Contributors of the Neos Project - www.neos.io
+ *
+ * This package is Open Source Software. For the full copyright and license
+ * information, please view the LICENSE file which was distributed with this
+ * source code.
+ */
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Error\Message;
+use Neos\Flow\Annotations as Flow;
+use Neos\Error\Messages\Message;
+use Neos\Neos\Controller\Module\AbstractModuleController;
 
 use WebExcess\Form\Domain\Model\Form;
 use WebExcess\Form\Domain\Repository\FormRepository;
 use WebExcess\Form\Service\FormHelperService;
 
 /**
- * The TYPO3 Management module controller
- *
  * @Flow\Scope("singleton")
  */
-class FormController extends \TYPO3\Neos\Controller\Module\AbstractModuleController {
+class FormController extends AbstractModuleController {
 
     /**
      * @Flow\Inject
@@ -39,13 +38,13 @@ class FormController extends \TYPO3\Neos\Controller\Module\AbstractModuleControl
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Flow\I18n\Translator
+     * @var \Neos\Flow\I18n\Translator
      */
     protected $translator;
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Form\Persistence\YamlPersistenceManager
+     * @var \Neos\Form\Persistence\YamlPersistenceManager
      */
     protected $yamlPersistenceManager;
 

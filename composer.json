@@ -1,9 +1,13 @@
 {
     "name": "webexcess/form",
-    "type": "typo3-flow-plugin",
+    "type": "neos-plugin",
     "license": "MIT",
-    "description": "Extends the default typo3 form plugin.",
-    "keywords": ["flow", "neos", "form"],
+    "description": "Extends the default neos form plugin.",
+    "keywords": [
+        "flow",
+        "neos",
+        "form"
+    ],
     "authors": [
         {
             "name": "Samuel Hauser",
@@ -13,11 +17,11 @@
         }
     ],
     "require": {
-        "typo3/neos": "2.*"
+        "neos/neos": "3.*"
     },
     "autoload": {
-        "psr-0": {
-            "WebExcess\\Form": "Classes"
+        "psr-4": {
+            "WebExcess\\Form\\": "Classes"
         }
     },
     "extra": {
