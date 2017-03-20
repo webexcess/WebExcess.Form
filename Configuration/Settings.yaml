@@ -201,7 +201,7 @@ TYPO3:
               elementClassAttribute: 'radio'
               inlineStyle: false
               inlineClassAttribute: 'radio-inline'
-          Dotpulse.Form:Submit:
+          WebExcess.Form:Submit:
             renderingOptions:
               containerClassAttribute: 'form-group'
 
