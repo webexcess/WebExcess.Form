@@ -279,12 +279,12 @@ class Form {
 					}
 				});
 
-				mfLIB(element).on('change', function() {
+				mfLIB(element).on('change', () => {
 					let value = this.value;
 					dropdown.querySelector('li[data-value="' + value + '"]').click();
 				});
 
-				mfLIB(dropdown).on('click', 'li[data-value]', function(event) {
+				mfLIB(dropdown).on('click', 'li[data-value]', event => {
 					event.stopPropagation();
 					let value = this.getAttribute('data-value');
 					let text = getText(this);
@@ -304,6 +304,35 @@ class Form {
 					parent.classList.remove(settings.className.open);
 				});
 			}
+		});
+	}
+
+	file(opts) {
+		let defaults = {
+			selector: {
+				input: '.mf-file-field',
+				files: '.mf-file-files'
+			}
+		};
+		let settings = $.extend({}, defaults, opts || {});
+
+		return this.each(element => {
+			let input = element.querySelector(settings.selector.input);
+			let filesList = element.querySelector(settings.selector.files);
+
+			input.addEventListener('change', (event) => {
+				writeFilesToList(event.target.files);
+			});
+
+			const writeFilesToList = (files) => {
+				let list = [];
+				filesList.innerHTML = '';
+				for (let i = 0; i < files.length; i++) {
+					list.push(files.item(i).name);
+				}
+				filesList.innerHTML = list.join('');
+				return list;
+			};
 		});
 	}
 }

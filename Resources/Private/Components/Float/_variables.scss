@@ -99,3 +99,16 @@ $form-dropdown-menu-max-height: 300px !default;
 $form-dropdown-menu-item-hover-background: $form-label-focus-color !default;
 $form-dropdown-menu-item-hover-color: #fff !default;
 $form-dropdown-menu-item-padding: 10px $form-padding-x !default;
+
+//= FileInput
+$form-file-height: $form-height !default;
+$form-file-padding: 0 $form-padding-x !default;
+
+$form-file-btn-max-width: 100% !default;
+$form-file-btn-color: $form-color !default;
+$form-file-btn-background-color: $form-border-color !default;
+$form-file-btn-hover-color: $form-file-btn-color !default;
+$form-file-btn-hover-background-color: lighten($form-file-btn-background-color, 10%) !default;
+
+$form-file-hint-color: $form-hint-color !default;
+$form-file-hint-font-size: $form-font-size * 0.75 !default;

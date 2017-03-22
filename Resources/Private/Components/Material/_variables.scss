@@ -94,3 +94,16 @@ $mf-radio-hint-color: $mf-hint-color !default;
 $mf-radio-label-top: 0 !default;
 $mf-radio-label-left: $mf-radio-gap !default;
 $mf-radio-legend-color: $mf-legend-color !default;
+
+//= FileInput
+$mf-file-height: $mf-height !default;
+$mf-file-padding: 0 $mf-label-padding-left !default;
+
+$mf-file-btn-max-width: 100% !default;
+$mf-file-btn-color: $mf-color !default;
+$mf-file-btn-background-color: $mf-border-color !default;
+$mf-file-btn-hover-color: $mf-file-btn-color !default;
+$mf-file-btn-hover-background-color: lighten($mf-file-btn-background-color, 10%) !default;
+
+$mf-file-hint-color: $mf-hint-color !default;
+$mf-file-hint-font-size: $mf-hint-font-size !default;

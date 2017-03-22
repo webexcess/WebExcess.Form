@@ -357,6 +357,22 @@ Neos:
                   containerClassAttribute: 'mf-select-hint'
             properties:
               prependOption: true
+          Neos.Form:FileUpload:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Material/FileUpload.html'
+              containerClassAttribute: 'mf-file'
+              elementClassAttribute: 'mf-file-field'
+              labelClassAttribute: 'mf-file-label'
+              buttonClassAttribute: 'mf-file-button'
+              filesClassAttribute: 'mf-file-files'
+              icon:
+                show: true
+                svg: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M0 28h32v2H0zm32-4v2H0v-2l4-8h8v4h8v-4h8zM7 10l9-9 9 9h-7v8h-4v-8z"/></svg>'
+              description:
+                elementClassAttribute: 'mf-file-hint'
+              error:
+                message:
+                  containerClassAttribute: 'mf-file-hint'
           WebExcess.Form:Spinner:
             renderingOptions:
               elementClassAttribute: 'mf-input-spinner'

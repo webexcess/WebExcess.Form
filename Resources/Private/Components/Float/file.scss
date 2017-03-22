@@ -1,0 +1,81 @@
+.form-file {
+	margin-top: $form-margin-top;
+	margin-bottom: $form-margin-bottom;
+
+	.form-file-hint {
+		position: absolute;
+	}
+}
+
+.form-file-hint {
+	font-size: $form-file-hint-font-size;
+	color: $form-file-hint-color;
+	transition: color $form-transition-speed ease;
+}
+
+.form-file-field {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+.form-file-button {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	height: $form-file-height;
+	line-height: 1;
+	padding: $form-file-padding;
+	width: 100%;
+	background: $form-file-btn-background-color;
+	color: $form-file-btn-color;
+	transition: all $form-transition-speed ease;
+
+	svg {
+		margin-right: 10px;
+
+		path {
+			fill: currentColor;
+		}
+	}
+}
+
+.form-file-label {
+	display: block;
+	margin: 0;
+	position: relative;
+	max-width: $form-file-btn-max-width;
+
+	&:hover {
+		.form-file-button {
+			color: $form-file-btn-hover-color;
+			background-color: $form-file-btn-hover-background-color;
+		}
+	}
+
+	.has-value & {
+		display: none;
+	}
+}
+
+.form-file-files {
+	margin-top: 5px;
+}
+
+.has-error {
+	.form-file-label {
+		border-color: $form-error-color;
+
+		.form-has-focus & {
+			color: $form-error-color;
+		}
+	}
+
+	.form-file-hint {
+		color: $form-error-color;
+	}
+}

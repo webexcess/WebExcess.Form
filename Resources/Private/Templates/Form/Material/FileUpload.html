@@ -1,0 +1,18 @@
+{namespace form=Neos\Form\ViewHelpers}
+{namespace we=WebExcess\Form\ViewHelpers}
+<f:layout name="TYPO3.Form:FieldFile" />
+<f:section name="field">
+	<form:form.uploadedResource property="{element.identifier}" as="resource">
+		<label class="{element.renderingOptions.labelClassAttribute}">
+			<f:form.upload property="{element.identifier}" id="{element.uniqueIdentifier}" class="{element.renderingOptions.elementClassAttribute}" />
+			<span class="{element.renderingOptions.buttonClassAttribute}">
+				<f:if condition="{element.renderingOptions.icon.show}">
+					{element.renderingOptions.icon.svg -> f:format.raw()}
+				</f:if>
+				{element -> we:translateElementProperty(property: 'label') -> f:format.nl2br()}
+				<f:if condition="{element.required}"><f:render partial="TYPO3.Form:Field/Required" /></f:if>
+			</span>
+		</label>
+		<div class="{element.renderingOptions.filesClassAttribute}"><f:if condition="{resource}">{resource.filename}</f:if></div>
+	</form:form.uploadedResource>
+</f:section>
