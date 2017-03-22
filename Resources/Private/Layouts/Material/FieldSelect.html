@@ -22,7 +22,7 @@
 				<f:if condition="{validationResults.flattenedErrors}">
 					<f:then>
 						<f:for each="{validationResults.errors}" as="error">
-							<div class="{element.renderingOptions.error.message.containerClassAttribute}">{error -> f:translate(id: error.code, arguments: error.arguments, package: '{element.renderingOptions.translationErrorPackage}', source: 'ValidationErrors')}</div>
+							<div class="{element.renderingOptions.error.message.containerClassAttribute}">{error -> f:translate(id: error.code, arguments: error.arguments, package: '{element.renderingOptions.translationErrorPackage}', source: 'ValidationErrors') -> f:format.raw()}</div>
 						</f:for>
 					</f:then>
 					<f:else>

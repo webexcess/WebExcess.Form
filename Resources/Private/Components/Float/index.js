@@ -17,3 +17,10 @@ MF('.form-select-field').dropdown({
 		select: 'form-select'
 	}
 });
+
+MF('.form-file').file({
+	selector: {
+		input: '.form-file-field',
+		files: '.form-file-files'
+	}
+});

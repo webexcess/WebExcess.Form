@@ -15,10 +15,6 @@
 			<div class="{element.renderingOptions.containerClassAttribute}{f:if(condition: validationResults.flattenedErrors, then: ' {element.renderingOptions.error.containerClassAttribute}')}"<f:if condition="{element.rootForm.renderingOptions.previewMode}"> data-element="{form:form.formElementRootlinePath(renderable:element)}"</f:if>>
 				<f:render section="field" />
 
-				<f:if condition="{element.renderingOptions.renderLabel}">
-					<label for="{element.uniqueIdentifier}" class="{element.renderingOptions.labelClassAttribute}">{element -> we:translateElementProperty(property: 'label') -> f:format.nl2br()}<f:if condition="{element.required}"><f:render partial="TYPO3.Form:Field/Required" /></f:if></label>
-				</f:if>
-
 				<f:if condition="{validationResults.flattenedErrors}">
 					<f:then>
 						<f:for each="{validationResults.errors}" as="error">
