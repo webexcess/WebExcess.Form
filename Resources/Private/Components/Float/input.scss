@@ -9,7 +9,6 @@
 
 		~ .form-input-label {
 			font-size: $form-input-label-active-font-size;
-			left: 0;
 			top: 2px;
 			transform: translateY(0);
 		}
@@ -28,6 +27,7 @@
 
 .form-input-label {
 	position: absolute;
+	left: 0;
 	top: 50%;
 	transform: translateY(-50%);
 	pointer-events: none;
