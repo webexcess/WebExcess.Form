@@ -9,7 +9,6 @@
 
 		~ .form-textarea-label {
 			font-size: $form-input-label-active-font-size;
-			left: 0;
 			top: 2px;
 		}
 	}
@@ -27,6 +26,7 @@
 
 .form-textarea-label {
 	position: absolute;
+	left: 0;
 	top: 15px;
 	pointer-events: none;
 	padding-left: $form-padding-x;
