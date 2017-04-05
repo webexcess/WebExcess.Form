@@ -106,6 +106,12 @@
 			<trans-unit id="forms.navigation.contactFormSend">
 				<source>Senden</source>
 			</trans-unit>
+			<trans-unit id="forms.navigation.defaultPreviousButton" xml:space="preserve">
+				<source>Zurück</source>
+			</trans-unit>
+			<trans-unit id="forms.navigation.defaultNextButton" xml:space="preserve">
+				<source>Weiter</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
