@@ -107,7 +107,7 @@
 	cursor: pointer;
 	width: 100%;
 	display: block;
-	background: transparent;
+	background: $form-dropdown-background-color;
 	border: 1px solid $form-dropdown-border-color;
 	text-align: left;
 	padding: $form-dropdown-padding;
