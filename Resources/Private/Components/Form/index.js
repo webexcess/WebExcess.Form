@@ -280,18 +280,23 @@ class Form {
 				});
 
 				mfLIB(element).on('change', () => {
-					let value = this.value;
+					let value = event.target.value;
 					dropdown.querySelector('li[data-value="' + value + '"]').click();
 				});
 
 				mfLIB(dropdown).on('click', 'li[data-value]', event => {
 					event.stopPropagation();
-					let value = this.getAttribute('data-value');
-					let text = getText(this);
+					let value = event.target.getAttribute('data-value');
+					let text = getText(event.target);
 					element.value = value;
 					dropdownText.innerHTML = text;
 					parent.classList[text ? 'add' : 'remove'](settings.className.hasValue);
 					closeAllDropdowns();
+
+					let newEvent = document.createEvent("HTMLEvents");
+					newEvent.initEvent("change", false, true);
+					element.dispatchEvent(newEvent);
+
 					clearTimeout(timer);
 					timer = setTimeout(() => { callback(element) }, time);
 				});
