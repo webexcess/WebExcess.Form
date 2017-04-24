@@ -1,3 +1,53 @@
 .form-styled {
 	overflow-x: hidden;
 }
+
+.form-row {
+	margin-top: $form-margin-top;
+	margin-bottom: $form-margin-bottom;
+
+	.form-select,
+	.form-input,
+	.form-textarea {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	[class^='col-sm-'],
+	[class*=' col-sm-'] {
+		@include media-breakpoint-down(xs) {
+			.form-select,
+			.form-input,
+			.form-textarea {
+				margin-top: $form-margin-top;
+			}
+
+			&:first-child {
+				.form-select,
+				.form-input,
+				.form-textarea {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+
+	[class^='col-md-'],
+	[class*=' col-md-'] {
+		@include media-breakpoint-down(sm) {
+			.form-select,
+			.form-input,
+			.form-textarea {
+				margin-top: $form-margin-top;
+			}
+
+			&:first-child {
+				.form-select,
+				.form-input,
+				.form-textarea {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+}
