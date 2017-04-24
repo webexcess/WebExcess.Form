@@ -42,6 +42,8 @@
 }
 
 .form-textarea-field {
+	-webkit-appearance: none;
+	border-radius: 0;
 	height: auto;
 	min-height: $form-input-height;
 	line-height: normal;
