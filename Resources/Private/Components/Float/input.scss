@@ -44,6 +44,8 @@
 }
 
 .form-input-field {
+	-webkit-appearance: none;
+	border-radius: 0;
 	height: $form-input-height;
 	line-height: normal;
 	border: 1px solid $form-input-border-color;
