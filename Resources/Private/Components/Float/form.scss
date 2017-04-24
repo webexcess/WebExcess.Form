@@ -20,13 +20,15 @@
 			.form-input,
 			.form-textarea {
 				margin-top: $form-margin-top;
+				margin-bottom: $form-margin-bottom;
 			}
 
-			&:first-child {
+			&:last-child {
 				.form-select,
 				.form-input,
 				.form-textarea {
 					margin-top: 0;
+					margin-bottom: 0;
 				}
 			}
 		}
@@ -39,13 +41,15 @@
 			.form-input,
 			.form-textarea {
 				margin-top: $form-margin-top;
+				margin-bottom: $form-margin-bottom;
 			}
 
-			&:first-child {
+			&:last-child {
 				.form-select,
 				.form-input,
 				.form-textarea {
 					margin-top: 0;
+					margin-bottom: 0;
 				}
 			}
 		}
