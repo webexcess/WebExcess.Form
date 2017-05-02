@@ -102,7 +102,15 @@ class EmailFinisher extends AbstractFinisher
             }
         }
 
-        $subject = $this->parseOption('subject');
+        $subject = null;
+        if ($this->parseOption('subject') != '') {
+            $subject = $this->parseOption('subject');
+        } else {
+            if ($this->parseOption('subjectFallback')) {
+                $subject = $this->parseOption('subjectFallback');
+            }
+        }
+
         $recipientName = $this->parseOption('recipientName');
         $senderAddress = $this->parseOption('senderAddress');
         $senderName = $this->parseOption('senderName');
