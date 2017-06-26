@@ -1,7 +1,11 @@
 <?php
 namespace WebExcess\Form\FormElements;
 
-class ConditionalRequired extends \TYPO3\Form\Core\Model\AbstractFormElement
+use TYPO3\Form\Core\Model\AbstractFormElement;
+use TYPO3\Form\Core\Runtime\FormRuntime;
+use TYPO3\Form\Core\Runtime\FormState;
+
+class ConditionalRequired extends AbstractFormElement
 {
 
     /**
@@ -17,10 +21,10 @@ class ConditionalRequired extends \TYPO3\Form\Core\Model\AbstractFormElement
     /**
      * Executed before the current element is outputted to the client
      *
-     * @param \TYPO3\Form\Core\Runtime\FormRuntime $formRuntime
+     * @param FormRuntime $formRuntime
      * @return void
      */
-    public function beforeRendering(\TYPO3\Form\Core\Runtime\FormRuntime $formRuntime)
+    public function beforeRendering(FormRuntime $formRuntime)
     {
         $this->requireIfTriggerIsSet($formRuntime->getFormState());
     }
@@ -28,11 +32,11 @@ class ConditionalRequired extends \TYPO3\Form\Core\Model\AbstractFormElement
     /**
      * Executed after the page containing the current element has been submitted
      *
-     * @param \TYPO3\Form\Core\Runtime\FormRuntime $formRuntime
+     * @param FormRuntime $formRuntime
      * @param mixed $elementValue raw value of the submitted element
      * @return void
      */
-    public function onSubmit(\TYPO3\Form\Core\Runtime\FormRuntime $formRuntime, &$elementValue)
+    public function onSubmit(FormRuntime $formRuntime, &$elementValue)
     {
         $this->requireIfTriggerIsSet($formRuntime->getFormState());
     }
@@ -41,10 +45,10 @@ class ConditionalRequired extends \TYPO3\Form\Core\Model\AbstractFormElement
      * Adds a NotEmptyValidator to the current element if the "trigger" value is not empty.
      * The trigger can be configured with $this->properties['triggerPropertyPath']
      *
-     * @param \TYPO3\Form\Core\Runtime\FormState $formState
+     * @param FormState $formState
      * @return void
      */
-    protected function requireIfTriggerIsSet(\TYPO3\Form\Core\Runtime\FormState $formState)
+    protected function requireIfTriggerIsSet(FormState $formState)
     {
         $field = $this->properties['triggerPropertyField'];
         $type = isset($this->properties['triggerPropertyType']) ? $this->properties['triggerPropertyType'] : 'input';

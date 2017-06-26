@@ -1,11 +1,24 @@
 <?php
+
 namespace WebExcess\Form\FormElements;
 
 use TYPO3\Form\Core\Model\AbstractFormElement;
 use TYPO3\Form\Core\Runtime\FormRuntime;
+use TYPO3\Form\Core\Runtime\FormState;
 
 class CollapseFormElement extends AbstractFormElement
 {
+
+    /**
+     * Executed before the current element is outputted to the client
+     *
+     * @param FormRuntime $formRuntime
+     * @return void
+     */
+    public function beforeRendering(FormRuntime $formRuntime)
+    {
+        $this->setCollapseClass($formRuntime->getFormState());
+    }
 
     /**
      * Executed after the page containing the current element has been submitted
@@ -16,12 +29,13 @@ class CollapseFormElement extends AbstractFormElement
      */
     public function onSubmit(FormRuntime $formRuntime, &$elementValue)
     {
-        if (!empty($this->getValidators())) {
-            $properties = $this->getProperties();
+        $properties = $this->getProperties();
 
-            if ($properties['collapseField'] !== false) {
+        if ($properties['collapseField'] !== false) {
+            $collapseFieldValue = $formRuntime->getFormState()->getFormValue($properties['collapseField']);
+
+            if (!empty($this->getValidators())) {
                 $formDefinition = $this->getRootForm();
-                $collapseFieldValue = $formRuntime->getFormState()->getFormValue($properties['collapseField']);
 
                 if (is_array($properties['collapseValue'])) {
                     if (!in_array($collapseFieldValue, $properties['collapseValue'])) {
@@ -51,30 +65,30 @@ class CollapseFormElement extends AbstractFormElement
     }
 
     /**
-     * Get the global unique identifier of the element
-     *
-     * @return string
+     * @param FormState $formState
      */
-    public function getCollapseClassAttribute()
+    protected function setCollapseClass(FormState $formState)
     {
         $properties = $this->getProperties();
         $renderingOptions = $this->getRenderingOptions();
         $formDefinition = $this->getRootForm();
 
         if ($properties['collapseField'] !== false) {
-            $defaultValue = $formDefinition->getElementDefaultValueByIdentifier($properties['collapseField']);
+            $defaultValue = $formState->getFormValue($properties['collapseField']) === null ? $formDefinition->getElementDefaultValueByIdentifier($properties['collapseField']) : $formState->getFormValue($properties['collapseField']);
 
             if (is_array($properties['collapseValue'])) {
                 if (in_array($defaultValue, $properties['collapseValue'])) {
-                    return $renderingOptions['containerVisibleClassAttribute'];
+                    $this->setRenderingOption('collapseClassAttribute', $renderingOptions['containerVisibleClassAttribute']);
+                } else {
+                    $this->setRenderingOption('collapseClassAttribute', $renderingOptions['containerHiddenClassAttribute']);
                 }
             } else {
                 if ($defaultValue == $properties['collapseValue']) {
-                    return $renderingOptions['containerVisibleClassAttribute'];
+                    $this->setRenderingOption('collapseClassAttribute', $renderingOptions['containerVisibleClassAttribute']);
+                } else {
+                    $this->setRenderingOption('collapseClassAttribute', $renderingOptions['containerHiddenClassAttribute']);
                 }
             }
         }
-
-        return $renderingOptions['containerHiddenClassAttribute'];
     }
 }

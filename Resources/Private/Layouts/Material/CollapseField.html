@@ -12,7 +12,7 @@
 		</f:if>
 
 			<f:comment><!--the formelement--></f:comment>
-			<div class="{element.renderingOptions.containerClassAttribute} {element.renderingOptions.containerCollapseClassAttribute} {element.collapseClassAttribute}{f:if(condition: validationResults.flattenedErrors, then: ' {element.renderingOptions.error.containerClassAttribute}')}"<f:if condition="{element.rootForm.renderingOptions.previewMode}"> data-element="{form:form.formElementRootlinePath(renderable:element)}"</f:if> data-collapse-field="{element.collapseFieldIdentifier}" data-collapse-value="{element.properties.collapseValue -> f:format.json()}">
+			<div class="{element.renderingOptions.containerClassAttribute} {element.renderingOptions.containerCollapseClassAttribute} {element.renderingOptions.collapseClassAttribute}{f:if(condition: validationResults.flattenedErrors, then: ' {element.renderingOptions.error.containerClassAttribute}')}"<f:if condition="{element.rootForm.renderingOptions.previewMode}"> data-element="{form:form.formElementRootlinePath(renderable:element)}"</f:if> data-collapse-field="{element.collapseFieldIdentifier}" data-collapse-value="{element.properties.collapseValue -> f:format.json()}">
 				<f:render section="field" />
 
 				<div class="{element.renderingOptions.helperBarClass}"></div>
