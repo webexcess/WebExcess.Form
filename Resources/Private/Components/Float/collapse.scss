@@ -1,0 +1,20 @@
+.form-input {
+	&.form-collapse-input {
+		transition: all $form-transition-speed ease;
+	}
+
+	&.form-collapse-input-visible {
+		max-height: $form-input-height;
+		visibility: visible;
+		margin-top: $form-margin-top;
+		margin-bottom: $form-margin-bottom;
+	}
+
+	&.form-collapse-input-hidden {
+		overflow: hidden;
+		max-height: 0;
+		visibility: hidden;
+		margin-top: -$form-margin-top;
+		margin-bottom: 0;
+	}
+}

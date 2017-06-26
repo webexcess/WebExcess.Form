@@ -312,6 +312,36 @@ class Form {
 		});
 	}
 
+	collapse(opts, callback = () => {}, time = 2000) {
+		let timer;
+		let defaults = {
+			className: {
+				visible: 'mf-collapse-input-visible',
+				hidden: 'mf-collapse-input-hidden'
+			},
+			data: {
+				field: 'data-collapse-field',
+				value: 'data-collapse-value'
+			}
+		};
+		let settings = $.extend({}, defaults, opts || {});
+
+		return this.each(element => {
+			let triggerField = document.getElementById(element.getAttribute(settings.data.field));
+			let triggerValue = JSON.parse(element.getAttribute(settings.data.value));
+
+			triggerField.addEventListener('change', (event) => {
+				if (Object.values(triggerValue).indexOf(event.target.value) > -1) {
+					element.classList.remove(settings.className.hidden);
+					element.classList.add(settings.className.visible);
+				} else {
+					element.classList.remove(settings.className.visible);
+					element.classList.add(settings.className.hidden);
+				}
+			});
+		});
+	}
+
 	file(opts) {
 		let defaults = {
 			selector: {

@@ -1,0 +1,20 @@
+.mf-input {
+	&.mf-collapse-input {
+		transition: all $mf-transition-speed ease;
+	}
+
+	&.mf-collapse-input-visible {
+		max-height: $mf-height;
+		visibility: visible;
+		margin-top: $mf-margin-top;
+		margin-bottom: $mf-margin-bottom;
+	}
+
+	&.mf-collapse-input-hidden {
+		overflow: hidden;
+		max-height: 0;
+		visibility: hidden;
+		margin-top: -$mf-margin-top;
+		margin-bottom: 0;
+	}
+}

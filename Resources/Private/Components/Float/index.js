@@ -24,3 +24,10 @@ MF('.form-file').file({
 		files: '.form-file-files'
 	}
 });
+
+MF('.form-collapse-input').collapse({
+	className: {
+		visible: 'form-collapse-input-visible',
+		hidden: 'form-collapse-input-hidden'
+	}
+});

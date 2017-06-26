@@ -132,6 +132,19 @@ TYPO3:
               colClassAttribute: 'col-sm-6'
               colRenderPosition: false # possible options: first || last
 
+          WebExcess.Form:CollapseSingleLineText:
+            implementationClassName: 'WebExcess\Form\FormElements\CollapseFormElement'
+            superTypes:
+              TYPO3.Form:SingleLineText: true
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/CollapseSingleLineText.html'
+              containerCollapseClassAttribute: 'collapse-input'
+              containerVisibleClassAttribute: 'collapse-input-visible'
+              containerHiddenClassAttribute: 'collapse-input-hidden'
+            properties:
+              collapseField: false
+              collapseValue: false
+
           WebExcess.Form:ConditionalRequiredSingleLineText:
             superTypes:
               TYPO3.Form:SingleLineText: true
@@ -380,6 +393,11 @@ TYPO3:
             renderingOptions:
               containerClassAttribute: 'mf-form-actions'
               elementClassAttribute: 'mf-button'
+          WebExcess.Form:CollapseSingleLineText:
+            renderingOptions:
+              containerCollapseClassAttribute: 'mf-collapse-input'
+              containerVisibleClassAttribute: 'mf-collapse-input-visible'
+              containerHiddenClassAttribute: 'mf-collapse-input-hidden'
 
       float:
         parentPreset: 'material'
@@ -491,3 +509,8 @@ TYPO3:
             renderingOptions:
               containerClassAttribute: 'form-actions'
               elementClassAttribute: 'form-button'
+          WebExcess.Form:CollapseSingleLineText:
+            renderingOptions:
+              containerCollapseClassAttribute: 'form-collapse-input'
+              containerVisibleClassAttribute: 'form-collapse-input-visible'
+              containerHiddenClassAttribute: 'form-collapse-input-hidden'
