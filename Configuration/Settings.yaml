@@ -472,6 +472,18 @@ Neos:
                   containerClassAttribute: 'form-select-hint'
             properties:
               prependOption: true
+          Neos.Form:FileUpload:
+            renderingOptions:
+              containerClassAttribute: 'form-file'
+              elementClassAttribute: 'form-file-field'
+              labelClassAttribute: 'form-file-label'
+              buttonClassAttribute: 'form-file-button'
+              filesClassAttribute: 'form-file-files'
+              description:
+                elementClassAttribute: 'form-file-hint'
+              error:
+                message:
+                  containerClassAttribute: 'form-file-hint'
           WebExcess.Form:Submit:
             renderingOptions:
               containerClassAttribute: 'form-actions'
