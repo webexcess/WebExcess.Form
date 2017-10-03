@@ -224,17 +224,39 @@ class Form {
 			function createList() {
 				let markup ='<div class="' + settings.className.list + '"><ul>';
 				children.each(option => {
-					let value = option.getAttribute('value');
-					if (option.matches('[selected]')) {
-						active = option;
-					}
-					if (value) {
-						markup += '<li data-value="' + value + '">' + getText(option) + '</li>';
+
+					if (option.tagName === 'OPTGROUP') {
+						markup += '<li class="mf-select-option-group">';
+						markup += '<span>' + option.getAttribute('label') + '</span>';
+
+						markup += '<ul>';
+						let groupChildren = new Form(option.children);
+						groupChildren.each(option => {
+							if (option.matches('[selected]')) {
+								active = option;
+							}
+							markup += createOption(option);
+						});
+
+						markup += '</ul></li>';
+					} else {
+						if (option.matches('[selected]')) {
+							active = option;
+						}
+						markup += createOption(option);
 					}
 				});
 
 				markup += '</ul></div>';
 				list = markup;
+			}
+
+			function createOption(option) {
+				let value = option.getAttribute('value');
+				if (value) {
+					return '<li data-value="' + value + '">' + getText(option) + '</li>';
+				}
+				return '';
 			}
 
 			function createButton() {
