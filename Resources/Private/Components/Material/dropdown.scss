@@ -65,13 +65,24 @@
 		max-height: $mf-dropdown-max-height;
 	}
 
-	li {
+	li:not(.mf-select-option-group) {
 		padding: 5px 10px;
 		cursor: pointer;
 
 		&:hover {
 			background: $mf-focus-color;
 			color: $mf-focus-contrast-color;
+		}
+	}
+
+	.mf-select-option-group {
+		span {
+			display: block;
+			pointer-events: none;
+			padding: 5px 10px;
+			font-weight: bold;
+			background-color: #ececec;
+			font-size: 90%;
 		}
 	}
 }
