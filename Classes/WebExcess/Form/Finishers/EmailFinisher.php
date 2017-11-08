@@ -55,7 +55,13 @@ class EmailFinisher extends AbstractFinisher
 
         $excludeFields = is_array($this->parseOption('excludeFields')) ? $this->parseOption('excludeFields') : explode(',', preg_replace('/\s+/', '', $this->parseOption('excludeFields')));
 
-        $arguments = $formRuntime->getRequest()->getArguments();
+        $arguments = $formRuntime->getFormState()->getFormValues();
+        foreach ($arguments as $formKey => $formValue) {
+            if (is_null($formValue)) {
+                unset($arguments[$formKey]);
+            }
+        }
+        
         $argumentsTmp = array();
         foreach ($arguments as $argument => $value) {
             if (!in_array($argument, $excludeFields)) {
