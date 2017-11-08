@@ -2,7 +2,7 @@
 namespace WebExcess\Form\Controller\Module;
 
 /*
- * This file is part of the Neos.Neos package.
+ * This file is part of the WebExcess.Form package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -80,7 +80,7 @@ class FormController extends AbstractModuleController {
     public function listAction($formIdentifier) {
         $lables = $this->formHelperService->checkAndUpdateFormValues($formIdentifier);
         $forms = $this->formRepository->findByFormIdentifierSorted($formIdentifier);
-        
+
         $this->view->assignMultiple(array(
             'formIdentifier' => $formIdentifier,
             'forms' => $forms,
@@ -118,7 +118,7 @@ class FormController extends AbstractModuleController {
      */
     public function editLabelAction($formIdentifier) {
         $forms = $this->formRepository->findByFormIdentifierSorted($formIdentifier, 'asc');
-        
+
         // Get all labels from form-entries
         $labelsFromForms = array();
         foreach ($forms as $form) {
@@ -147,7 +147,7 @@ class FormController extends AbstractModuleController {
                 'delete' => !in_array($identifier, $existingLabels)
             );
         }
-        
+
         $this->view->assignMultiple(array(
             'formIdentifier' => $formIdentifier,
             'forms' => $formsReturn
@@ -177,7 +177,7 @@ class FormController extends AbstractModuleController {
      */
     public function updateLabelAction($formIdentifier, $identifier, $name) {
         $forms = $this->formRepository->findByFormIdentifierSorted($formIdentifier);
-        
+
         foreach ($forms as $form) {
             $formValues = $form->getFormValues();
             $formValuesNew = array();
@@ -207,7 +207,7 @@ class FormController extends AbstractModuleController {
      */
     public function deleteLabelAction($formIdentifier, $identifier) {
         $forms = $this->formRepository->findByFormIdentifierSorted($formIdentifier);
-        
+
         foreach ($forms as $form) {
             $formValues = $form->getFormValues();
             $formValuesNew = array();
@@ -278,7 +278,7 @@ class FormController extends AbstractModuleController {
         header("Cache-Control: max-age=0, no-cache, must-revalidate, proxy-revalidate");
         header("Last-Modified: {$now} GMT");
 
-        // force download  
+        // force download
         header("Content-Type: application/force-download");
         header("Content-Type: application/octet-stream");
         header("Content-Type: application/download");

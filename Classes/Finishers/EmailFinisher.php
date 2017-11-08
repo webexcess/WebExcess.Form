@@ -2,7 +2,7 @@
 namespace WebExcess\Form\Finishers;
 
 /*
- * This file is part of the Neos.Neos package.
+ * This file is part of the WebExcess.Form package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -61,7 +61,7 @@ class EmailFinisher extends AbstractFinisher
                 unset($arguments[$formKey]);
             }
         }
-        
+
         $argumentsTmp = array();
         foreach ($arguments as $argument => $value) {
             if (!in_array($argument, $excludeFields)) {

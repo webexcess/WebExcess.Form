@@ -2,7 +2,7 @@
 namespace WebExcess\Form\ViewHelpers\Iterator;
 
 /*
- * This file is part of the Neos.Neos package.
+ * This file is part of the WebExcess.Form package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *

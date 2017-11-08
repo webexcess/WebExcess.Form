@@ -2,7 +2,7 @@
 namespace WebExcess\Form\Domain\Repository;
 
 /*
- * This file is part of the Neos.Neos package.
+ * This file is part of the WebExcess.Form package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
@@ -27,7 +27,7 @@ class FormRepository extends Repository {
      */
     public function findByFormIdentifierSorted($formIdentifier, $direction = 'desc') {
         $query = $this->createQuery();
-        
+
         $query->matching(
             $query->equals('formIdentifier', $formIdentifier)
         );
@@ -37,5 +37,5 @@ class FormRepository extends Repository {
 
         return $query->execute();
     }
-    
+
 }
