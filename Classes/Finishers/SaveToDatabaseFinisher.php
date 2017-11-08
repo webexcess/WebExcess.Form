@@ -73,7 +73,12 @@ class SaveToDatabaseFinisher extends AbstractFinisher
         $defaultLocale = $this->i18nService->getConfiguration()->getDefaultLocale();
 
         $formIdentifier = $formRuntime->getIdentifier();
-        $formValues = $formRuntime->getRequest()->getArguments();
+        $formValues = $formRuntime->getFormState()->getFormValues();
+        foreach ($formValues as $formKey => $formValue) {
+            if (is_null($formValue)) {
+                unset($formValues[$formKey]);
+            }
+        }
 
         // Exclude Fields
         $excludeFields = $this->parseOption('excludeFields');

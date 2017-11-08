@@ -6,16 +6,7 @@
 			<td width="10"></td>
 			<td valign="top">
 				<f:if condition="{element.value}">
-					<we:type.isArray value="{element.value}">
-						<f:then>
-							<f:for each="{element.value}" as="arrayValue">
-								- {arrayValue -> f:format.raw()}<br />
-							</f:for>
-						</f:then>
-						<f:else>
-							{element.value -> f:format.raw()}
-						</f:else>
-					</we:type.isArray>
+					<f:format.raw><we:email.value value="{element.value -> f:format.raw()}" /></f:format.raw>
 				</f:if>
 			</td>
 		</tr>
