@@ -1,15 +1,15 @@
 <?php
 namespace WebExcess\Form\Controller\Module;
 
-/*                                                                        *
- * This script belongs to the TYPO3 Flow package "TYPO3.Neos".            *
- *                                                                        *
- * It is free software; you can redistribute it and/or modify it under    *
- * the terms of the GNU General Public License, either version 3 of the   *
- * License, or (at your option) any later version.                        *
- *                                                                        *
- * The TYPO3 project - inspiring people to share!                         *
- *                                                                        */
+/*
+ * This file is part of the WebExcess.Form package.
+ *
+ * (c) Contributors of the Neos Project - www.neos.io
+ *
+ * This package is Open Source Software. For the full copyright and license
+ * information, please view the LICENSE file which was distributed with this
+ * source code.
+ */
 
 use TYPO3\Flow\Annotations as Flow;
 use TYPO3\Flow\Error\Message;
@@ -81,7 +81,7 @@ class FormController extends \TYPO3\Neos\Controller\Module\AbstractModuleControl
     public function listAction($formIdentifier) {
         $lables = $this->formHelperService->checkAndUpdateFormValues($formIdentifier);
         $forms = $this->formRepository->findByFormIdentifierSorted($formIdentifier);
-        
+
         $this->view->assignMultiple(array(
             'formIdentifier' => $formIdentifier,
             'forms' => $forms,
@@ -119,7 +119,7 @@ class FormController extends \TYPO3\Neos\Controller\Module\AbstractModuleControl
      */
     public function editLabelAction($formIdentifier) {
         $forms = $this->formRepository->findByFormIdentifierSorted($formIdentifier, 'asc');
-        
+
         // Get all labels from form-entries
         $labelsFromForms = array();
         foreach ($forms as $form) {
@@ -148,7 +148,7 @@ class FormController extends \TYPO3\Neos\Controller\Module\AbstractModuleControl
                 'delete' => !in_array($identifier, $existingLabels)
             );
         }
-        
+
         $this->view->assignMultiple(array(
             'formIdentifier' => $formIdentifier,
             'forms' => $formsReturn
@@ -178,7 +178,7 @@ class FormController extends \TYPO3\Neos\Controller\Module\AbstractModuleControl
      */
     public function updateLabelAction($formIdentifier, $identifier, $name) {
         $forms = $this->formRepository->findByFormIdentifierSorted($formIdentifier);
-        
+
         foreach ($forms as $form) {
             $formValues = $form->getFormValues();
             $formValuesNew = array();
@@ -208,7 +208,7 @@ class FormController extends \TYPO3\Neos\Controller\Module\AbstractModuleControl
      */
     public function deleteLabelAction($formIdentifier, $identifier) {
         $forms = $this->formRepository->findByFormIdentifierSorted($formIdentifier);
-        
+
         foreach ($forms as $form) {
             $formValues = $form->getFormValues();
             $formValuesNew = array();
@@ -279,7 +279,7 @@ class FormController extends \TYPO3\Neos\Controller\Module\AbstractModuleControl
         header("Cache-Control: max-age=0, no-cache, must-revalidate, proxy-revalidate");
         header("Last-Modified: {$now} GMT");
 
-        // force download  
+        // force download
         header("Content-Type: application/force-download");
         header("Content-Type: application/octet-stream");
         header("Content-Type: application/download");

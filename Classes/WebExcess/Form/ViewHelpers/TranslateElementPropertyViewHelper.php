@@ -2,7 +2,7 @@
 namespace WebExcess\Form\ViewHelpers;
 
 /*
- * This file is part of the TYPO3.Form package.
+ * This file is part of the WebExcess.Form package.
  *
  * (c) Contributors of the Neos Project - www.neos.io
  *
