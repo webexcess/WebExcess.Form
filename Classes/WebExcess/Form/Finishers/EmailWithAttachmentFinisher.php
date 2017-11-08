@@ -67,7 +67,13 @@ class EmailWithAttachmentFinisher extends AbstractFinisher
             }
         }
 
-        $arguments = $formRuntime->getRequest()->getArguments();
+        $arguments = $formRuntime->getFormState()->getFormValues();
+        foreach ($arguments as $formKey => $formValue) {
+            if (is_null($formValue)) {
+                unset($arguments[$formKey]);
+            }
+        }
+        
         $argumentsTmp = array();
         foreach ($arguments as $argument => $value) {
             if (!in_array($argument, $excludeFields) && !in_array($argument, $attachmentFields)) {
