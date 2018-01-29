@@ -21,6 +21,10 @@ MF('.form-select-field').dropdown({
 MF('.form-file').file({
 	selector: {
 		input: '.form-file-field',
-		files: '.form-file-files'
+		files: '.form-file-files',
+		remove: '.form-file-remove'
+	},
+	className: {
+		multiple: 'form-file-multiple'
 	}
 });

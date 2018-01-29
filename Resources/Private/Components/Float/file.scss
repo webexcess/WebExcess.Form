@@ -7,6 +7,14 @@
 	}
 }
 
+.form-file-item {
+	&:first-child {
+		.form-file-files {
+			margin-top: 5px;
+		}
+	}
+}
+
 .form-file-hint {
 	font-size: $form-file-hint-font-size;
 	color: $form-file-hint-color;
@@ -62,8 +70,15 @@
 	}
 }
 
-.form-file-files {
-	margin-top: 5px;
+.form-file-remove {
+	margin-left: 5px;
+	font-weight: bold;
+
+	&,
+	&:hover {
+		text-decoration: none;
+		color: $form-error-color;
+	}
 }
 
 .has-error {

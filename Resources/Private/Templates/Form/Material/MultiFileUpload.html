@@ -1,0 +1,50 @@
+{namespace form=Neos\Form\ViewHelpers}
+{namespace we=WebExcess\Form\ViewHelpers}
+<f:layout name="Neos.Form:FieldFile" />
+<f:section name="field">
+	<we:form.uploadedResources property="{element.identifier}" as="resources">
+		<f:if condition="{resources}">
+			<f:then>
+				<div class="form-file-item has-no-value">
+					<label class="{element.renderingOptions.labelClassAttribute}">
+						<f:form.upload property="{element.identifier}.{resources -> f:count()}.resource" class="{element.renderingOptions.elementClassAttribute}" />
+						<span class="{element.renderingOptions.buttonClassAttribute}">
+							<f:if condition="{element.renderingOptions.icon.show}">
+								{element.renderingOptions.icon.svg -> f:format.raw()}
+							</f:if>
+							{element -> we:translateElementProperty(property: 'label') -> f:format.nl2br()}
+							<f:if condition="{element.required}"><f:render partial="Neos.Form:Field/Required" /></f:if>
+						</span>
+					</label>
+					<div class="{element.renderingOptions.filesClassAttribute}"></div>
+				</div>
+
+				<f:for each="{resources}" as="resource" iteration="resourceIterator" reverse="true">
+					<div class="form-file-item has-value">
+						<label class="{element.renderingOptions.labelClassAttribute}">
+							<f:form.upload property="{element.identifier}.{resourceIterator.index}.resource" class="{element.renderingOptions.elementClassAttribute}" />
+						</label>
+						<div class="{element.renderingOptions.filesClassAttribute}">
+							<f:if condition="{resource}">{resource.filename}<a href="#" class="form-file-remove">&times;</a></f:if>
+						</div>
+					</div>
+				</f:for>
+			</f:then>
+			<f:else>
+				<div class="form-file-item has-no-value">
+					<label class="{element.renderingOptions.labelClassAttribute}">
+						<f:form.upload property="{element.identifier}.0.resource" class="{element.renderingOptions.elementClassAttribute}" />
+						<span class="{element.renderingOptions.buttonClassAttribute}">
+							<f:if condition="{element.renderingOptions.icon.show}">
+								{element.renderingOptions.icon.svg -> f:format.raw()}
+							</f:if>
+							{element -> we:translateElementProperty(property: 'label') -> f:format.nl2br()}
+							<f:if condition="{element.required}"><f:render partial="Neos.Form:Field/Required" /></f:if>
+						</span>
+					</label>
+					<div class="{element.renderingOptions.filesClassAttribute}"></div>
+				</div>
+			</f:else>
+		</f:if>
+	</we:form.uploadedResources>
+</f:section>

@@ -316,28 +316,76 @@ class Form {
 		let defaults = {
 			selector: {
 				input: '.mf-file-field',
-				files: '.mf-file-files'
+				files: '.mf-file-files',
+				remove: '.mf-file-remove'
+			},
+			className: {
+				multiple: 'mf-file-multiple'
 			}
 		};
 		let settings = $.extend({}, defaults, opts || {});
 
+		const writeFilesToList = (files, listBox, multiple = false) => {
+			let fileName = files.item(0).name;
+			listBox.innerHTML = fileName;
+
+			if (multiple === true) {
+				let removeBtn = document.createElement('a');
+				removeBtn.setAttribute('href', '#');
+				removeBtn.classList.add(settings.selector.remove.replace('.', ''));
+				removeBtn.innerHTML = '&times;';
+				listBox.appendChild(removeBtn);
+			}
+		};
+
 		return this.each(element => {
-			let input = element.querySelector(settings.selector.input);
-			let filesList = element.querySelector(settings.selector.files);
+			if (element.classList.contains(settings.className.multiple)) {
+				// Handle Multiple FileInputs
 
-			input.addEventListener('change', (event) => {
-				writeFilesToList(event.target.files);
-			});
+				element.addEventListener('change', (event) => {
+					if (event.target.matches(settings.selector.input)) {
+						let fileItem = event.target.parentNode.parentNode;
+						let filesList = fileItem.querySelector(settings.selector.files);
 
-			const writeFilesToList = (files) => {
-				let list = [];
-				filesList.innerHTML = '';
-				for (let i = 0; i < files.length; i++) {
-					list.push(files.item(i).name);
-				}
-				filesList.innerHTML = list.join('');
-				return list;
-			};
+						let newElement = fileItem.cloneNode(true);
+						let newElementInput = newElement.querySelector(settings.selector.input);
+						let newElementInputName = newElementInput.getAttribute('name').replace(/[0-9]/, (fullMatch, n) => {
+							return Number(fullMatch) + 1;
+						});
+						newElementInput.setAttribute('name', newElementInputName);
+						newElementInput.value = '';
+						element.insertBefore(newElement, fileItem);
+
+						writeFilesToList(event.target.files, filesList, true);
+						fileItem.classList.add('has-value');
+						fileItem.classList.remove('has-no-value');
+					}
+				});
+
+				element.addEventListener('click', (event) => {
+					if (event.target.matches(settings.selector.remove)) {
+						event.preventDefault();
+						let fileItem = event.target.parentNode.parentNode;
+						element.removeChild(fileItem);
+						// let fileInput = fileItem.querySelector(settings.selector.input);
+						// let fileList = fileItem.querySelector(settings.selector.files);
+                        //
+						// fileInput.value = '';
+						// fileList.innerHTML = '';
+					}
+				});
+			} else {
+				// Handle Single FileInputs
+
+				let input = element.querySelector(settings.selector.input);
+				let filesList = element.querySelector(settings.selector.files);
+
+				input.addEventListener('change', (event) => {
+					writeFilesToList(event.target.files, filesList);
+				});
+
+
+			}
 		});
 	}
 }

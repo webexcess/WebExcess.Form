@@ -61,8 +61,14 @@ class EmailWithAttachmentFinisher extends AbstractFinisher
         if (!empty($attachmentFields)) {
             foreach ($attachmentFields as $attachmentField) {
                 if ($formRuntime->getRequest()->hasArgument($attachmentField)) {
-                    $tmpFile = $formRuntime->getRequest()->getArgument($attachmentField);
-                    $attachments[] = \Swift_Attachment::newInstance(file_get_contents($tmpFile['tmp_name']), $tmpFile['name'], $tmpFile['type']);
+                    $attachmentFieldArgument = $formRuntime->getRequest()->getArgument($attachmentField);
+                    if (is_array($attachmentFieldArgument) && !isset($attachmentFieldArgument['tmp_name'])) {
+                        foreach ($attachmentFieldArgument as $tmpFile) {
+                            $attachments[] = \Swift_Attachment::newInstance(file_get_contents($tmpFile['resource']['tmp_name']), $tmpFile['resource']['name'], $tmpFile['resource']['type']);
+                        }
+                    } else {
+                        $attachments[] = \Swift_Attachment::newInstance(file_get_contents($attachmentFieldArgument['tmp_name']), $attachmentFieldArgument['name'], $attachmentFieldArgument['type']);
+                    }
                 }
             }
         }

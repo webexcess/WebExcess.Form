@@ -101,6 +101,10 @@ Neos:
           Neos.Form:MultipleSelectDropdown:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/MultipleSelectDropdown.html'
+          WebExcess.Form:MultiFileUpload:
+            superTypes:
+              Neos.Form:FileUpload: true
+            implementationClassName: WebExcess\Form\FormElements\MultiFileUpload
           Neos.Form:StaticText:
             renderingOptions:
               templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/WebExcess/StaticText.html'
@@ -373,6 +377,10 @@ Neos:
               error:
                 message:
                   containerClassAttribute: 'mf-file-hint'
+          WebExcess.Form:MultiFileUpload:
+            renderingOptions:
+              templatePathPattern: 'resource://WebExcess.Form/Private/Templates/Form/Material/MultiFileUpload.html'
+              containerClassAttribute: 'mf-file mf-file-multiple'
           WebExcess.Form:Spinner:
             renderingOptions:
               elementClassAttribute: 'mf-input-spinner'
@@ -484,6 +492,9 @@ Neos:
               error:
                 message:
                   containerClassAttribute: 'form-file-hint'
+          WebExcess.Form:MultiFileUpload:
+            renderingOptions:
+              containerClassAttribute: 'form-file form-file-multiple'
           WebExcess.Form:Submit:
             renderingOptions:
               containerClassAttribute: 'form-actions'
