@@ -91,6 +91,8 @@
 	}
 
 	.form-file-hint {
+		position: relative;
 		color: $form-error-color;
+		line-height: 1;
 	}
 }
