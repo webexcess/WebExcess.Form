@@ -35,7 +35,7 @@
 	cursor: pointer;
 	display: flex;
 	align-items: center;
-	height: $form-file-height;
+	min-height: $form-file-height;
 	line-height: 1;
 	padding: $form-file-padding;
 	width: 100%;
