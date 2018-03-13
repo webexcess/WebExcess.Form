@@ -2,6 +2,9 @@
 <f:if condition="{section.renderingOptions.colRenderPosition}=='first'">
 	<div class="{section.renderingOptions.rowClassAttribute}">
 </f:if>
+<f:if condition="{section.renderingOptions.colRenderPosition}=='first last'">
+	<div class="{section.renderingOptions.rowClassAttribute}">
+</f:if>
 
 	<div class="{section.renderingOptions.colClassAttribute}">
 		<f:for each="{section.elements}" as="element">
@@ -9,6 +12,9 @@
 		</f:for>
 	</div>
 
+<f:if condition="{section.renderingOptions.colRenderPosition}=='first last'">
+	</div>
+</f:if>
 <f:if condition="{section.renderingOptions.colRenderPosition}=='last'">
 	</div>
 </f:if>
